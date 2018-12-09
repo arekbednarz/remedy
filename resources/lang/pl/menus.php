@@ -12,6 +12,7 @@ return [
     | found in a intuitive way.
     |
     */
+    'main_page' => 'Strona główna',
 
     'backend' => [
         'access' => [

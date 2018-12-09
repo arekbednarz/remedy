@@ -757,7 +757,7 @@ ul#additional_links li:after {
   }
 }
 .hero_home.version_1 {
-  background: #3f4079 url(../../img/frontend/hero_home_bg_1.svg) no-repeat center bottom;
+  background: #3f4079 url(../../img/frontend/hero_home_bg_1.png) no-repeat center bottom;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1134,7 +1134,7 @@ ul#additional_links li:after {
 }
 
 .list_title {
-  background-color: #3f4079;
+  background-color: #49682a;
   color: #fff;
   margin-bottom: 5px;
   -webkit-border-radius: 3px;
@@ -1160,7 +1160,7 @@ ul#additional_links li:after {
   font-size: 18px;
   font-size: 1.125rem;
   margin: 0;
-  color: #74d1c6;
+  color: #ffffff;
   text-transform: uppercase;
 }
 @media (max-width: 575px) {
@@ -1210,7 +1210,7 @@ ul#additional_links li:after {
   color: #e74e84;
 }
 .list_home ul li a:hover {
-  background-color: #e74e84;
+  background-color: #12657d;
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
@@ -1410,7 +1410,7 @@ a.box_cat_home ul li strong {
 }
 
 #app_section {
-  background: #3f4079 url(../../img/frontend/hero_bg_1.svg) repeat fixed;
+  background: #49682a url(../../img/frontend/hero_bg_1.svg) repeat fixed;
   padding: 90px 0 60px 0;
   color: #fff;
 }
