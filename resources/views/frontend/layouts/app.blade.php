@@ -48,6 +48,7 @@
 
             @include('frontend.includes.header')
 
+            @include('includes.partials.messages')
             <main>
                 @yield('content')
             </main>

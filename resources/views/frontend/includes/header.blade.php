@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-3 col-6">
                 <div id="logo_home">
-                    <h1><a href="index.html" title="Remedy">Remedy</a></h1>
+                    <h1><a href="{{ route('frontend.index') }}" title="Remedy">Remedy</a></h1>
                 </div>
             </div>
             <nav class="col-lg-9 col-6">

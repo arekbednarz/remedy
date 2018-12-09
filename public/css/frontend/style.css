@@ -757,7 +757,7 @@ ul#additional_links li:after {
   }
 }
 .hero_home.version_1 {
-  background: #3f4079 url(../../img/frontend/hero_home_bg_1.png) no-repeat center bottom;
+  background: #063344 url(../../img/frontend/hero_home_bg_4.png) no-repeat center bottom;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1134,7 +1134,7 @@ ul#additional_links li:after {
 }
 
 .list_title {
-  background-color: #49682a;
+  background-color: #063344;
   color: #fff;
   margin-bottom: 5px;
   -webkit-border-radius: 3px;
@@ -1410,7 +1410,7 @@ a.box_cat_home ul li strong {
 }
 
 #app_section {
-  background: #49682a url(../../img/frontend/hero_bg_1.svg) repeat fixed;
+  background: #063344 url(../../img/frontend/hero_bg_1.svg) repeat fixed;
   padding: 90px 0 60px 0;
   color: #fff;
 }
@@ -4456,7 +4456,7 @@ a.box_feat_about h3 {
 }
 
 .bg_color_2 {
-  background: #3f4079 url(../../img/frontend/hero_bg_1.svg) repeat fixed;
+  background: #063344 url(../../img/frontend/hero_bg_1.svg) repeat fixed;
 }
 
 .form-control {
