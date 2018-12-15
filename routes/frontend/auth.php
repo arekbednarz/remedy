@@ -53,6 +53,9 @@ Route::group(['namespace' => 'Auth', 'as' => 'auth.'], function () {
         if (config('access.registration')) {
             Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
             Route::post('register', [RegisterController::class, 'register'])->name('register.post');
+
+            Route::get('register_specialist', [RegisterController::class, 'showSpecialistRegistrationForm'])->name('register.specialist');
+            Route::post('register_specialist', [RegisterController::class, 'registerSpecialist'])->name('register.specialist.post');
         }
 
         // Confirm Account Routes

@@ -31,6 +31,13 @@
                                 <li><a href="badges.html">Homeopatia</a></li>
                             </ul>
                         </li>
+                        <li class="submenu">
+                            <a href="#0" class="show-submenu">Zarejestruj się<i class="icon-down-open-mini"></i></a>
+                            <ul>
+                                <li><a href="{{route('frontend.auth.register.specialist')}}">Jako Specjalista</a></li>
+                                <li><a href="{{route('frontend.auth.register')}}">Jako użytkownik</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
                 <!-- /main-menu -->

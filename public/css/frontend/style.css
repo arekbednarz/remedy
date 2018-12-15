@@ -746,7 +746,7 @@ ul#additional_links li:after {
 /*============================================================================================*/
 /*-------- 2.1 Home--------*/
 .hero_home {
-  height: 500px;
+  height: 600px;
   width: 100%;
   display: table;
 }
@@ -757,7 +757,7 @@ ul#additional_links li:after {
   }
 }
 .hero_home.version_1 {
-  background: #063344 url(../../img/frontend/hero_home_bg_4.png) no-repeat center bottom;
+  background: #063344 url(../../img/frontend/hero_home_bg_5.png) no-repeat center bottom;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
