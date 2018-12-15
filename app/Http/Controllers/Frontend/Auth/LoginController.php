@@ -25,7 +25,7 @@ class LoginController extends Controller
      * @return string
      */
     public function redirectPath()
-    {
+    {        
         return route(home_route());
     }
 
