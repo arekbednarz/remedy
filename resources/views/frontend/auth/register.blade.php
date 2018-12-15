@@ -3,10 +3,6 @@
 @section('title', app_name() . ' | ' . __('labels.frontend.auth.register_box_title'))
 
 @section('content')
-
-
-
-
     <div class="bg_color_2">
         <div class="container margin_60_35">
             <div id="register">
@@ -81,7 +77,6 @@
     </div>
     </main>
     <!-- /main -->
-
 @endsection
 
 @push('after-scripts')
