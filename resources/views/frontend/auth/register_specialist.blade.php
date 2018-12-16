@@ -4,12 +4,6 @@
 
 @section('content')
 
-
-
-
-
-
-
     <div id="hero_register">
         <div class="container margin_120_95">
             <div class="row">
@@ -58,10 +52,11 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <select class="form-control">
-                                            <option value="">Wybierz specjalizację...</option>
-                                            <option value="">Akupresura</option>
-                                            <option value="">Homeopatia</option>
+                                        <select class="form-control" name="specialization_id">
+                                            <option value="">@lang('general.select_specialization')</option>
+                                            @foreach($specializations as $specialization)
+                                                <option {{ old('specialization_id') == $specialization->id ? 'selected' : '' }} value="{{ $specialization->id }}">{{ $specialization->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -100,7 +95,7 @@
                                 </div>
                             </div>
                         </div>
-                        @if(!config('access.captcha.registration'))
+                        @if(config('access.captcha.registration'))
                             <div class="row">
                                 <div class="col-md-12">
                                     {!! Captcha::display() !!}

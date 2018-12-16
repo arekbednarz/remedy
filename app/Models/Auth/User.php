@@ -2,6 +2,7 @@
 
 namespace App\Models\Auth;
 
+use App\Models\Specialization;
 use App\Models\Traits\Uuid;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -47,6 +48,7 @@ class User extends Authenticatable
         'timezone',
         'last_login_at',
         'last_login_ip',
+        'is_specialist'
     ];
 
     /**
@@ -76,4 +78,13 @@ class User extends Authenticatable
         'active' => 'boolean',
         'confirmed' => 'boolean',
     ];
+
+    public function isSpecialist() {
+        return $this->is_specialist;
+    }
+
+    public function specializations() {
+        return $this->belongsToMany(Specialization::class)->withPivot(['is_main']);
+    }
+
 }

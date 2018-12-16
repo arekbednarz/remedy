@@ -89,9 +89,9 @@ class UserRepository extends BaseRepository
      * @throws \Exception
      * @throws \Throwable
      */
-    public function create(array $data)
+    public function create(array $data, $isSpecialist = false)
     {
-        return DB::transaction(function () use ($data) {
+        return DB::transaction(function () use ($data, $isSpecialist) {
             $user = parent::create([
                 'first_name'        => $data['first_name'],
                 'last_name'         => $data['last_name'],
@@ -101,13 +101,16 @@ class UserRepository extends BaseRepository
                 'password'          => $data['password'],
                                     // If users require approval or needs to confirm email
                 'confirmed'         => config('access.users.requires_approval') || config('access.users.confirm_email') ? 0 : 1,
+                'is_specialist'     => $isSpecialist
             ]);
 
             if ($user) {
-                /*
-                 * Add the default site role to the new user
-                 */
-                $user->assignRole(config('access.users.default_role'));
+                if ($isSpecialist) {
+                    $user->assignRole('specialist');
+                    $user->specializations()->attach($data['specialization_id'], ['is_main' => true]);
+                } else {
+                    $user->assignRole(config('access.users.default_role'));
+                }
             }
 
             /*

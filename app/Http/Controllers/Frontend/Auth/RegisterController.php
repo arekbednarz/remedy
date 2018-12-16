@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
 use App\Helpers\Frontend\Auth\Socialite;
 use App\Events\Frontend\Auth\UserRegistered;
+use App\Models\Specialization;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Repositories\Frontend\Auth\UserRepository;
 
@@ -63,7 +64,9 @@ class RegisterController extends Controller
     {
         abort_unless(config('access.registration'), 404);
 
-        return view('frontend.auth.register_specialist');
+        $specializations = Specialization::all();
+
+        return view('frontend.auth.register_specialist', compact('specializations'));
     }
 
     /**
@@ -74,7 +77,7 @@ class RegisterController extends Controller
      */
     public function register(RegisterRequest $request)
     {
-        $user = $this->userRepository->create($request->only('first_name', 'last_name', 'email', 'password'));
+        $user = $this->userRepository->create($request->only('first_name', 'last_name', 'email', 'password'), false);
 
         // If the user must confirm their email or their account requires approval,
         // create the account but don't log them in.
@@ -103,7 +106,7 @@ class RegisterController extends Controller
      */
     public function registerSpecialist(RegisterRequest $request)
     {
-        $user = $this->userRepository->create($request->only('first_name', 'last_name', 'email', 'password'));
+        $user = $this->userRepository->create($request->only('first_name', 'last_name', 'email', 'password', 'specialization_id'), true);
 
         // If the user must confirm their email or their account requires approval,
         // create the account but don't log them in.
