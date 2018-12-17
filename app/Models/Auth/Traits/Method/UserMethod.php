@@ -75,6 +75,10 @@ trait UserMethod
         return $this->hasRole(config('access.users.admin_role'));
     }
 
+    public function  isSpecialist() {
+        return $this->hasRole('specialist');
+    }
+
     /**
      * @return bool
      */

@@ -65,6 +65,10 @@ return [
         ],
 
         'welcome' => 'Welcome to the Dashboard',
+
+        'specialist_profile' => [
+            'title' => 'My profile'
+        ]
     ],
 
     'emails' => [

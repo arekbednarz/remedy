@@ -48,6 +48,7 @@ return [
             'general'   => 'General',
             'history'   => 'History',
             'system'    => 'System',
+            'my_profile' => 'My Profile'
         ],
     ],
 
