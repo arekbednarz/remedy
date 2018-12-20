@@ -1,13 +1,9 @@
 function initialize() {
 
 
-    var lat = 18.5204;
-    var lon = 73.8567;
+    var lat = 52.069337;
+    var lon = 19.480271;
 
-    navigator.geolocation.getCurrentPosition(function(position) {
-        lat = position.coords.latitude;
-        lon = position.coords.longitude;
-    });
 
     var mapOptions, map, marker, searchBox, city,
         infoWindow = '',
@@ -86,8 +82,9 @@ function initialize() {
 
         // Get the city and set the city input value to the one selected
         for( var i = 0; i < resultArray.length; i++ ) {
-            if ( resultArray[ i ].types[0] && 'administrative_area_level_2' === resultArray[ i ].types[0] ) {
+            if ( resultArray[ i ].types[0] && 'locality' === resultArray[ i ].types[0] ) {
                 citi = resultArray[ i ].long_name;
+
                 city.value = citi;
             }
         }
@@ -122,10 +119,10 @@ function initialize() {
             if ( 'OK' === status ) {  // This line can also be written like if ( status == google.maps.GeocoderStatus.OK ) {
                 address = result[0].formatted_address;
                 resultArray =  result[0].address_components;
-
+                city.value = '';
                 // Get the city and set the city input value to the one selected
                 for( var i = 0; i < resultArray.length; i++ ) {
-                    if ( resultArray[ i ].types[0] && 'administrative_area_level_2' === resultArray[ i ].types[0] ) {
+                    if ( resultArray[ i ].types[0] && 'locality' === resultArray[ i ].types[0] ) {
                         citi = resultArray[ i ].long_name;
                         console.log( citi );
                         city.value = citi;
@@ -153,6 +150,16 @@ function initialize() {
 
             infoWindow.open( map, marker );
         } );
+    });
+
+
+    // Move map to your location
+    navigator.geolocation.getCurrentPosition(function(position) {
+        map.setCenter(new google.maps.LatLng(  position.coords.latitude, position.coords.longitude ) );
+        marker.setPosition({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        });
     });
 
 
