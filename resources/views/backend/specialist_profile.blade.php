@@ -1,8 +1,15 @@
 @extends('backend.layouts.app')
 
+
+@push('after-styles')
+    <link href="/vendor/dropzone.css" rel="stylesheet">
+    <link href="/js/backend/editor/summernote-bs4.css" rel="stylesheet">
+@endpush
+
 @section('title', app_name() . ' | ' . __('strings.backend.specialist_profile.title'))
 
 @section('content')
+
     <div class="box_general padding_bottom">
         <div class="header_box version_2">
             <h2><i class="fa fa-file"></i>Basic info</h2>
@@ -11,13 +18,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" class="form-control" placeholder="Your name">
+                    <input type="text" class="form-control" placeholder="Your name" name="first_name" value="{{ old('first_name', $user->first_name) }}">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Last name</label>
-                    <input type="text" class="form-control" placeholder="Your last name">
+                    <input type="text" class="form-control" placeholder="Your last name" name="last_name" value="{{ old('last_name', $user->last_name) }}">
                 </div>
             </div>
         </div>
@@ -26,13 +33,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Telephone</label>
-                    <input type="text" class="form-control" placeholder="Your telephone number">
+                    <input type="text" class="form-control" placeholder="Your telephone number" name="telephone" value="{{ old('telephone') }}">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" class="form-control" placeholder="Your email">
+                    <input type="email" class="form-control" placeholder="Your email" name="email" value="{{ old('email', $user->email) }}">
                 </div>
             </div>
         </div>
@@ -89,6 +96,14 @@
             </div>
         </div>
         <!-- /row-->
+        <label for="">Address: <input id="map-search" class="controls" type="text" placeholder="Search Box" size="104"></label><br>
+        <label for="">Lat: <input type="text" class="latitude"></label>
+        <label for="">Long: <input type="text" class="longitude"></label>
+        <label for="">City <input type="text" class="reg-input-city" placeholder="City"></label>
+
+
+        <div id="map-canvas" style="width:100%; height:500px;" ></div>
+
     </div>
     <!-- /box_general-->
 
@@ -154,4 +169,37 @@
     </div>
     <!-- /box_general-->
     <p><a href="#0" class="btn_1 medium">Save</a></p>
+
+
+
+
+
+
 @endsection
+
+@push('after-scripts')
+    <script src="/vendor/dropzone.min.js"></script>
+    <script src="/js/backend/editor/summernote-bs4.min.js"></script>
+    <script>
+        $('.editor').summernote({
+            fontSizes: ['10', '14'],
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough']],
+                ['fontsize', ['fontsize']],
+                ['para', ['ul', 'ol', 'paragraph']]
+            ],
+            placeholder: 'Write here your description....',
+            tabsize: 2,
+            height: 200
+        });
+    </script>
+
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAPS_API_KEY')}}&libraries=places&callback=initialize"></script>
+    <script src="/js/backend/maps.js"></script>
+    </body>
+    </html>
+
+@endpush

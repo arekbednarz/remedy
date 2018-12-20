@@ -33,6 +33,8 @@
         <!-- Your custom styles -->
         <link href="/css/backend/admin.css" rel="stylesheet">
 
+        @stack('after-styles')
+
     </head>
 
     <body class="fixed-nav sticky-footer" id="page-top">
@@ -92,6 +94,8 @@
     <script src="/vendor/jquery.magnific-popup.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="/js/backend/admin.js"></script>
+
+    @stack('after-scripts')
 
 
     </body>

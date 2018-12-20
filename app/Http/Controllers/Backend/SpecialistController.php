@@ -14,6 +14,10 @@ class SpecialistController extends Controller
      */
     public function index()
     {
-        return view('backend.specialist_profile');
+
+        $user = auth()->user();
+
+        //dd($user->toArray());
+        return view('backend.specialist_profile', compact('user'));
     }
 }
