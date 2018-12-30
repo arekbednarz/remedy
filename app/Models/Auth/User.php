@@ -48,7 +48,17 @@ class User extends Authenticatable
         'timezone',
         'last_login_at',
         'last_login_ip',
-        'is_specialist'
+        'is_specialist',
+        'is_man',
+        'phone_number',
+        'mobile_number',
+        'skype',
+        'facebook',
+        'address',
+        'city',
+        'latitude',
+        'longitude',
+        'description'
     ];
 
     /**
@@ -77,6 +87,7 @@ class User extends Authenticatable
     protected $casts = [
         'active' => 'boolean',
         'confirmed' => 'boolean',
+        'is_man' => 'boolean'
     ];
 
     public function isSpecialist() {

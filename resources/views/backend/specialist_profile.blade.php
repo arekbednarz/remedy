@@ -12,19 +12,19 @@
 
     <div class="box_general padding_bottom">
         <div class="header_box version_2">
-            <h2><i class="fa fa-file"></i>Basic info</h2>
+            <h2><i class="fa fa-file"></i>@lang('general.basic_info')</h2>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" class="form-control" placeholder="Your name" name="first_name" value="{{ old('first_name', $user->first_name) }}">
+                    <label>@lang('general.name')</label>
+                    <input type="text" class="form-control" placeholder="@lang('general.your_name')" name="first_name" value="{{ old('first_name', $user->first_name) }}">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Last name</label>
-                    <input type="text" class="form-control" placeholder="Your last name" name="last_name" value="{{ old('last_name', $user->last_name) }}">
+                    <label>@lang('general.last_name')</label>
+                    <input type="text" class="form-control" placeholder="@lang('general.your_last_name')" name="last_name" value="{{ old('last_name', $user->last_name) }}">
                 </div>
             </div>
         </div>
@@ -32,14 +32,23 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Telephone</label>
-                    <input type="text" class="form-control" placeholder="Your telephone number" name="telephone" value="{{ old('telephone') }}">
+                    <label>@lang('general.telephone')</label>
+                    <input type="text" class="form-control" placeholder="@lang('general.your_telephone_number')" name="phone_number" value="{{ old('phone_number', $user->phone_number) }}">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" class="form-control" placeholder="Your email" name="email" value="{{ old('email', $user->email) }}">
+                    <label>@lang('general.mobile')</label>
+                    <input type="email" class="form-control" placeholder="@lang('general.your_mobile_number')" name="movile_number" value="{{ old('mobile_number', $user->mobile_number) }}">
+                </div>
+            </div>
+        </div>
+        <!-- /row-->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>@lang('general.email')</label>
+                    <input type="email" class="form-control" placeholder="@lang('general.your_email')" name="email" value="{{ old('email', $user->email) }}">
                 </div>
             </div>
         </div>
@@ -48,7 +57,9 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Profile picture</label>
-                    <form action="/file-upload" class="dropzone" ></form>
+                    <form action="{{ route('admin.upload_file') }}" class="dropzone" id="avatar_upload" >
+                        {{ csrf_field() }}
+                    </form>
                 </div>
             </div>
         </div>
@@ -180,25 +191,9 @@
 @push('after-scripts')
     <script src="/vendor/dropzone.min.js"></script>
     <script src="/js/backend/editor/summernote-bs4.min.js"></script>
-    <script>
-        $('.editor').summernote({
-            fontSizes: ['10', '14'],
-            toolbar: [
-                // [groupName, [list of button]]
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough']],
-                ['fontsize', ['fontsize']],
-                ['para', ['ul', 'ol', 'paragraph']]
-            ],
-            placeholder: 'Write here your description....',
-            tabsize: 2,
-            height: 200
-        });
-    </script>
-
-
     <script async defer src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAPS_API_KEY')}}&libraries=places&callback=initialize"></script>
     <script src="/js/backend/maps.js"></script>
+    <script src="/js/backend/profile.js"></script>
     </body>
     </html>
 
