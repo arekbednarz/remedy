@@ -43,6 +43,7 @@
                 </div>
             </div>
         </div>
+
         <!-- /row-->
         <div class="row">
             <div class="col-md-6">
@@ -51,12 +52,10 @@
                     <input type="email" class="form-control" placeholder="@lang('general.your_email')" name="email" value="{{ old('email', $user->email) }}">
                 </div>
             </div>
-        </div>
-        <!-- /row-->
-        <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label>Profile picture</label>
+                    <input type="hidden" name="avatar_filename" id="avatar_filename">
                     <form action="{{ route('admin.upload_file') }}" class="dropzone" id="avatar_upload" >
                         {{ csrf_field() }}
                     </form>
