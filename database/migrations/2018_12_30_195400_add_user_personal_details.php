@@ -21,6 +21,7 @@ class AddUserPersonalDetails extends Migration
             $table->string('facebook')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
+            $table->string('state')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->text('description')->nullable();
@@ -42,6 +43,7 @@ class AddUserPersonalDetails extends Migration
             $table->dropColumn('facebook');
             $table->dropColumn('address');
             $table->dropColumn('city');
+            $table->dropColumn('state');
             $table->dropColumn('latitude');
             $table->dropColumn('longitude');
             $table->dropColumn('description');

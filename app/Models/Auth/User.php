@@ -98,4 +98,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Specialization::class)->withPivot(['is_main']);
     }
 
+    public function mainSpecialization() {
+        return $this->belongsToMany(Specialization::class)->withPivot(['is_main'])->wherePivot('is_main', true)->first();
+    }
+
 }

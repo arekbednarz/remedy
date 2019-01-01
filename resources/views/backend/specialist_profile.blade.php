@@ -39,7 +39,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>@lang('general.mobile')</label>
-                    <input type="email" class="form-control" placeholder="@lang('general.your_mobile_number')" name="movile_number" value="{{ old('mobile_number', $user->mobile_number) }}">
+                    <input type="text" class="form-control" placeholder="@lang('general.your_mobile_number')" name="movile_number" value="{{ old('mobile_number', $user->mobile_number) }}">
                 </div>
             </div>
         </div>
@@ -52,9 +52,27 @@
                     <input type="email" class="form-control" placeholder="@lang('general.your_email')" name="email" value="{{ old('email', $user->email) }}">
                 </div>
             </div>
+        </div>
+
+        <!-- /row-->
+        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Profile picture</label>
+                    <label>@lang('general.facebook')</label>
+                    <input type="text" class="form-control" placeholder="@lang('general.your_facebook')" name="facebook" value="{{ old('facebook', $user->facebook) }}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>@lang('general.skype')</label>
+                    <input type="text" class="form-control" placeholder="@lang('general.your_skype')" name="skype" value="{{ old('skype', $user->skype) }}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>@lang('general.profile_picture')</label>
                     <input type="hidden" name="avatar_filename" id="avatar_filename">
                     <form action="{{ route('admin.upload_file') }}" class="dropzone" id="avatar_upload" >
                         {{ csrf_field() }}
@@ -68,48 +86,33 @@
 
     <div class="box_general padding_bottom">
         <div class="header_box version_2">
-            <h2><i class="fa fa-map-marker"></i>Address</h2>
+            <h2><i class="fa fa-map-marker"></i>@lang('general.address')</h2>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>City</label>
+                    <label>@lang('general.state')</label>
                     <select class="form-control">
-                        <option value="">Select city</option>
-                        <option value="New York">New York</option>
-                        <option value="Chicago">Chicago</option>
-                        <option value="Miami">Miami</option>
-                        <option value="Los Angeles">Los Angeles</option>
+                        @foreach(\App\Models\State::getStatesByCountrycode(\App\Models\State::POLAND_CODE) as $id => $name)
+                            <option value="{{ $id }}" {{ $user->state == $id ? 'selected="selected"' : '' }}>{{ $name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Address</label>
-                    <input type="text" class="form-control" placeholder="Your address">
+                    <label>@lang('general.address')</label>
+                    <input type="text" class="form-control" placeholder="@lang('general.your_address')" id="map-search" name="address" value="{{ old('address', $user->address) }}">
+
+                    <input type="text" class="latitude" value="{{ old('latitude', $user->latitude) }}">
+                    <input type="text" class="longitude" value="{{ old('longitude', $user->longitude) }}">
+                    <input type="text" class="reg-input-city" placeholder="City" value="{{ old('city', $user->city) }}">
                 </div>
             </div>
         </div>
         <!-- /row-->
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>State</label>
-                    <input type="text" class="form-control" placeholder="Your state">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>Zip code</label>
-                    <input type="text" class="form-control" placeholder="Your zip code">
-                </div>
-            </div>
-        </div>
-        <!-- /row-->
-        <label for="">Address: <input id="map-search" class="controls" type="text" placeholder="Search Box" size="104"></label><br>
-        <label for="">Lat: <input type="text" class="latitude"></label>
-        <label for="">Long: <input type="text" class="longitude"></label>
-        <label for="">City <input type="text" class="reg-input-city" placeholder="City"></label>
+
+
 
 
         <div id="map-canvas" style="width:100%; height:500px;" ></div>
@@ -119,13 +122,17 @@
 
     <div class="box_general padding_bottom">
         <div class="header_box version_2">
-            <h2><i class="fa fa-file-text"></i>Curriculum</h2>
+            <h2><i class="fa fa-file-text"></i>@lang('general.specialization')</h2>
         </div>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Professional statement</label>
-                    <div class="editor"></div>
+                    <select class="form-control" name="specialization_id">
+                        @foreach($specializations as $specialization)
+                            <option {{ old('specialization_id', $user->mainSpecialization()->id) == $specialization->id ? 'selected' : '' }} value="{{ $specialization->id }}">{{ $specialization->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
         </div>
@@ -133,11 +140,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>Specialization <a href="#0" data-toggle="tooltip" data-placement="top" title="Separated by commas"><i class="fa fa-fw fa-question-circle"></i></a></label>
-                    <input type="text" class="form-control" placeholder="Ex: Piscologist, Pediatrician...">
+                    <label>@lang('general.specialization_description')</label>
+                    <div class="editor"></div>
                 </div>
             </div>
         </div>
+
         <!-- /row-->
     </div>
     <!-- /box_general-->

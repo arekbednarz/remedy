@@ -7,7 +7,7 @@ $('.editor').summernote({
         ['fontsize', ['fontsize']],
         ['para', ['ul', 'ol', 'paragraph']]
     ],
-    placeholder: 'Write here your description....',
+    placeholder: 'Tutaj napisz opis....',
     tabsize: 2,
     height: 200
 });
