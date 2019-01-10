@@ -14,5 +14,20 @@ return [
     'dashboard_list_choose_description' => 'Wybierz województwo w którym mieszkasz aby przejżeć metody leczenia najbliżej ciebie bądź wybierz metodę leczenia która szczególnie cie interesuje.',
     'most_viewed_experts' => 'Najczęściej odwiedzani specjaliści',
     'most_viewed_experts_description' => 'Wybierz spośród najbardziej popularnych ekspertów ze swojej dziedziny.',
+    'basic_info' => 'Podstawowe informacje',
+    'name' => 'Imię',
+    'last_name' => 'Nazwisko',
+    'telephone' => 'Telefon stacjonarny',
+    'mobile' => 'Telefon komórkowy',
+    'email' => 'Email',
+    'facebook' => 'Facebook',
+    'skype' => 'Skype',
+    'profile_picture' => 'Zdjęcie profilowe',
+    'address' => 'Adres',
+    'state' => 'Województwo',
+    'specialization' => 'Specjalizacja',
+    'specialization_description' => 'Opis specjalizacji',
+    'edit' => 'Edytuj',
+    'save' => 'Zapisz'
 
 ];

@@ -10,10 +10,45 @@
 
 @section('content')
 
+
+    <div class="box_general padding_bottom">
+        <div class="header_box version_2">
+            <h2><i class="fa fa-file"></i>@lang('general.profile_picture')</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="hidden" name="avatar_filename" id="avatar_filename">
+                    <form action="{{ route('admin.upload_file') }}" class="dropzone" id="avatar_upload" >
+                        {{ csrf_field() }}
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /row-->
+    </div>
+    <!-- /box_general-->
+
+
+
+    {{ html()->form('POST', route('admin.profile.store'))->open() }}
+
+
     <div class="box_general padding_bottom">
         <div class="header_box version_2">
             <h2><i class="fa fa-file"></i>@lang('general.basic_info')</h2>
         </div>
+
+        <!-- /row-->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>@lang('general.email')</label>
+                    <input type="email" class="form-control" placeholder="@lang('general.your_email')" readonly="readonly" value="{{ $user->email }}">
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -39,17 +74,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>@lang('general.mobile')</label>
-                    <input type="text" class="form-control" placeholder="@lang('general.your_mobile_number')" name="movile_number" value="{{ old('mobile_number', $user->mobile_number) }}">
-                </div>
-            </div>
-        </div>
-
-        <!-- /row-->
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>@lang('general.email')</label>
-                    <input type="email" class="form-control" placeholder="@lang('general.your_email')" name="email" value="{{ old('email', $user->email) }}">
+                    <input type="text" class="form-control" placeholder="@lang('general.your_mobile_number')" name="mobile_number" value="{{ old('mobile_number', $user->mobile_number) }}">
                 </div>
             </div>
         </div>
@@ -69,54 +94,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>@lang('general.profile_picture')</label>
-                    <input type="hidden" name="avatar_filename" id="avatar_filename">
-                    <form action="{{ route('admin.upload_file') }}" class="dropzone" id="avatar_upload" >
-                        {{ csrf_field() }}
-                    </form>
-                </div>
-            </div>
-        </div>
         <!-- /row-->
-    </div>
-    <!-- /box_general-->
-
-    <div class="box_general padding_bottom">
-        <div class="header_box version_2">
-            <h2><i class="fa fa-map-marker"></i>@lang('general.address')</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>@lang('general.state')</label>
-                    <select class="form-control">
-                        @foreach(\App\Models\State::getStatesByCountrycode(\App\Models\State::POLAND_CODE) as $id => $name)
-                            <option value="{{ $id }}" {{ $user->state == $id ? 'selected="selected"' : '' }}>{{ $name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>@lang('general.address')</label>
-                    <input type="text" class="form-control" placeholder="@lang('general.your_address')" id="map-search" name="address" value="{{ old('address', $user->address) }}">
-
-                    <input type="text" class="latitude" value="{{ old('latitude', $user->latitude) }}">
-                    <input type="text" class="longitude" value="{{ old('longitude', $user->longitude) }}">
-                    <input type="text" class="reg-input-city" placeholder="City" value="{{ old('city', $user->city) }}">
-                </div>
-            </div>
-        </div>
-        <!-- /row-->
-
-
-
-
-        <div id="map-canvas" style="width:100%; height:500px;" ></div>
-
     </div>
     <!-- /box_general-->
 
@@ -141,8 +119,11 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label>@lang('general.specialization_description')</label>
-                    <div class="editor"></div>
+                    <div id="description">{{ $user->description }}</div>
+                    <textarea style="display:none;" name="description" id="description_textarea">{{ $user->description }}</textarea>
                 </div>
+                <button id="editDescription" class="btn_1 medium" onclick="onEditDescription()" type="button">@lang('general.edit')</button>
+                <button id="saveDescription" class="btn_1 medium" onclick="onSaveDescription()" type="button">@lang('general.save')</button>
             </div>
         </div>
 
@@ -151,6 +132,43 @@
     <!-- /box_general-->
 
     <div class="box_general padding_bottom">
+        <div class="header_box version_2">
+            <h2><i class="fa fa-map-marker"></i>@lang('general.address')</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>@lang('general.state')</label>
+                    <select class="form-control">
+                        @foreach(\App\Models\State::getStatesByCountrycode(\App\Models\State::POLAND_CODE) as $id => $name)
+                            <option value="{{ $id }}" {{ $user->state == $id ? 'selected="selected"' : '' }}>{{ $name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>@lang('general.address')</label>
+                    <input type="text" class="form-control" placeholder="@lang('general.your_address')" id="map-search" name="address" value="{{ old('address', $user->address) }}">
+
+                    <input type="text" name="latitude" class="latitude" value="{{ old('latitude', $user->latitude) }}">
+                    <input type="text" name="longitude" class="longitude" value="{{ old('longitude', $user->longitude) }}">
+                    <input type="text" name="city" class="reg-input-city" placeholder="City" value="{{ old('city', $user->city) }}">
+                </div>
+            </div>
+        </div>
+        <!-- /row-->
+
+
+
+
+        <div id="map-canvas" style="width:100%; height:500px;" ></div>
+
+    </div>
+    <!-- /box_general-->
+
+
+    <!--<div class="box_general padding_bottom">
         <div class="header_box version_2">
             <h2><i class="fa fa-folder"></i>Pricing</h2>
         </div>
@@ -183,12 +201,11 @@
                 <a href="#0" class="btn_1 gray add-pricing-list-item"><i class="fa fa-fw fa-plus-circle"></i>Add Item</a>
             </div>
         </div>
-        <!-- /row-->
-    </div>
+    </div>-->
     <!-- /box_general-->
-    <p><a href="#0" class="btn_1 medium">Save</a></p>
+    <p><input type="submit" class="btn_1 medium" value="@lang('general.save')"></p>
 
-
+    {{ html()->form()->close() }}
 
 
 
@@ -201,7 +218,4 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAPS_API_KEY')}}&libraries=places&callback=initialize"></script>
     <script src="/js/backend/maps.js"></script>
     <script src="/js/backend/profile.js"></script>
-    </body>
-    </html>
-
 @endpush
