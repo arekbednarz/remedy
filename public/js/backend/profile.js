@@ -28,16 +28,27 @@ function readFile(input) {
     }
 }
 
-$('#profile-picture-upload').on('change', function() { readFile(this); });
+$('#profile-picture-upload').on('change', function() {
+    $('#current-profile-picture').hide();
+    $('#new-profile-picture').show();
+    readFile(this);
+});
 
 $('#new-profile-picture').hide();
 
-$('#upload_new_profile_picture').click(function () {
-    $('#current-profile-picture').hide();
-    $('#new-profile-picture').show();
+$('#cancel_new_profile_picture').click(function () {
+    $('#current-profile-picture').show();
+    $('#new-profile-picture').hide();
 });
 
-$('#cancel_new_profile_picture').click(function () {
+$('#save_new_profile_picture').click(function (e) {
+    e.preventDefault();
+    $profilePicPreview.croppie('result', 'base64').then(function(src) {
+        $('#profile-picture-preview').attr("src",src);
+        $('#profile_picture').val(src);
+        // html is div (overflow hidden)
+        // with img positioned inside.
+    });
     $('#current-profile-picture').show();
     $('#new-profile-picture').hide();
 });

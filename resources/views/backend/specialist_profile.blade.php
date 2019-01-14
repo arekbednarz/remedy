@@ -5,72 +5,36 @@
     <link href="/vendor/dropzone.css" rel="stylesheet">
     <link href="/css/backend/croppie.css" rel="stylesheet">
     <link href="/js/backend/editor/summernote-bs4.css" rel="stylesheet">
-
-    <style>
-
-        .file-btn input[type="file"] {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 300px;
-            height: 50px;
-            opacity: 0;
-
-        }
-
-        .file-btn span {
-            color: white;
-        }
-
-        .profile-picture-preview {
-            width: 200px;
-            height: 260px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
-
-    </style>
+    <link href="/css/backend/pages/profile.css" rel="stylesheet">
 @endpush
 
 @section('title', app_name() . ' | ' . __('strings.backend.specialist_profile.title'))
 
 @section('content')
 
+    {{ html()->form('POST', route('admin.profile.store'))->open() }}
 
     <div class="box_general padding_bottom">
         <div class="header_box version_2">
             <h2><i class="fa fa-file"></i>@lang('general.profile_picture')</h2>
         </div>
         <div class="row">
-
             <div id="current-profile-picture" class="col-md-12">
-                <img class="profile-picture-preview" src="/storage/avatars/aa.jpg">
-                <button class="btn btn-primary" id="upload_new_profile_picture">Zmień zdjęcie profilowe</button>
+
+                <div id="aaa">
+                    <img id="profile-picture-preview" src="/storage/avatars/{{ !empty($user->profile_picture) ? $user->profile_picture : 'no.jpg' }}">
+                    <input type="hidden" id="profile_picture" name="profile_picture" />
+                </div>
+
+                <div class="fileinputs">
+                    <input type="file" id="profile-picture-upload" class="file" accept="image/*" />
+                    <button class="fakefile btn_1 small">
+                        Zmień
+                    </button>
+                </div>
             </div>
 
             <div id="new-profile-picture" class="col-md-12">
-
-
-                <div id="upload-demo" class="croppie-container">
-                    <div class="cr-boundary" aria-dropeffect="none">
-                        <canvas class="cr-image" alt="preview" aria-grabbed="false">
-
-                        </canvas>
-                        <div class="cr-viewport cr-vp-circle" tabindex="0" style="width: 100px; height: 100px;">
-
-                        </div>
-                        <div class="cr-overlay"></div></div><div class="cr-slider-wrap">
-                        <input class="cr-slider" type="range" step="0.0001" aria-label="zoom">
-                    </div>
-                </div>
-
-
-
-                <div class="row">
-                    <a class="btn_1 file-btn">
-                        <span>Wczytaj zdjęcie profilowe</span>
-                        <input type="file" class="" id="profile-picture-upload" accept="image/*" required/>
-                    </a>
-                </div>
 
                 <div class="row">
                     <div class="text-center">
@@ -83,32 +47,9 @@
 
             </div>
 
-
         </div>
         <!-- /row-->
     </div>
-
-    <!--<div class="box_general padding_bottom">
-        <div class="header_box version_2">
-            <h2><i class="fa fa-file"></i>@lang('general.profile_picture')</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <div class="form-group">
-                    <input type="hidden" name="avatar_filename" id="avatar_filename">
-                    <form action="{{ route('admin.upload_file') }}" class="dropzone" id="avatar_upload" >
-                        {{ csrf_field() }}
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    </div>-->
-    <!-- /box_general-->
-
-
-
-    {{ html()->form('POST', route('admin.profile.store'))->open() }}
 
 
     <div class="box_general padding_bottom">

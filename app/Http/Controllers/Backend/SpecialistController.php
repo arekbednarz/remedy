@@ -55,6 +55,17 @@ class SpecialistController extends Controller
         $user->longitude = $input['longitude'];
         $user->specializations()->sync([$input['specialization_id'] => ['is_main' => true]]);
 
+        if ($input['profile_picture'] and !empty($input['profile_picture'])) {
+
+            $image = $input['profile_picture'];  // your base64 encoded
+            $image = str_replace('data:image/png;base64,', '', $image);
+            $image = str_replace(' ', '+', $image);
+            $imageName = str_random(10).'.'.'png';
+            \File::put(storage_path(). '/app/public/avatars/' . $imageName, base64_decode($image));
+
+            $user->profile_picture = $imageName;
+        }
+
         if ($user->save()) {
             return redirect()->back()->withFlashSuccess(__('alerts.backend.users.updated'));
         } else {

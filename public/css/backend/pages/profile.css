@@ -1,0 +1,27 @@
+#profile-picture-preview {
+    width: 200px;
+    height: 260px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.fileinputs {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 60px;
+}
+
+button.fakefile {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+input.file {
+    position: relative;
+    text-align: right;
+    -moz-opacity:0 ;
+    filter:alpha(opacity: 0);
+    opacity: 0;
+    z-index: 2;
+}
