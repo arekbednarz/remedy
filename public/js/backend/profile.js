@@ -36,7 +36,8 @@ $('#profile-picture-upload').on('change', function() {
 
 $('#new-profile-picture').hide();
 
-$('#cancel_new_profile_picture').click(function () {
+$('#cancel_new_profile_picture').click(function (e) {
+    e.preventDefault();
     $('#current-profile-picture').show();
     $('#new-profile-picture').hide();
 });
@@ -46,11 +47,8 @@ $('#save_new_profile_picture').click(function (e) {
     $profilePicPreview.croppie('result', 'base64').then(function(src) {
         $('#profile-picture-preview').attr("src",src);
         $('#profile_picture').val(src);
-        // html is div (overflow hidden)
-        // with img positioned inside.
+        $('#store_profile_picture_form').submit();
     });
-    $('#current-profile-picture').show();
-    $('#new-profile-picture').hide();
 });
 
 

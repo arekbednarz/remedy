@@ -11,6 +11,4 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard'
 
 Route::get('profile', [SpecialistController::class, 'index'])->name('profile');
 route::post('profile', [SpecialistController::class, 'store'])->name('profile.store');
-
-Route::post('upload_file', [FileController::class, 'upload'])->name('upload_file');
-Route::post('remove_file', [FileController::class, 'remove'])->name('remove_file');
+route::post('profile_picture', [SpecialistController::class, 'storeProfilePicture'])->name('profile.store_profile_picture');

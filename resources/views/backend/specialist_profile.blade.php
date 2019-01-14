@@ -12,7 +12,7 @@
 
 @section('content')
 
-    {{ html()->form('POST', route('admin.profile.store'))->open() }}
+    {{ html()->form('POST', route('admin.profile.store_profile_picture'))->id('store_profile_picture_form')->open() }}
 
     <div class="box_general padding_bottom">
         <div class="header_box version_2">
@@ -38,7 +38,7 @@
 
                 <div class="row">
                     <div class="text-center">
-                        <img id="profile-pic-preview" src="/storage/avatars/aa.jpg">
+                        <img id="profile-pic-preview">
                     </div>
                 </div>
 
@@ -51,6 +51,9 @@
         <!-- /row-->
     </div>
 
+    {{ html()->form()->close() }}
+
+    {{ html()->form('POST', route('admin.profile.store'))->open() }}
 
     <div class="box_general padding_bottom">
         <div class="header_box version_2">

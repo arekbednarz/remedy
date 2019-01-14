@@ -21,18 +21,11 @@ return [
         ],
 
         'users' => [
-            'cant_resend_confirmation' => 'The application is currently set to manually approve users.',
-            'confirmation_email'  => 'A new confirmation e-mail has been sent to the address on file.',
-            'confirmed'              => 'The user was successfully confirmed.',
-            'created'             => 'The user was successfully created.',
-            'deleted'             => 'The user was successfully deleted.',
-            'deleted_permanently' => 'The user was deleted permanently.',
-            'restored'            => 'The user was successfully restored.',
-            'session_cleared'      => "The user's session was successfully cleared.",
-            'social_deleted' => 'Social Account Successfully Removed',
-            'unconfirmed' => 'The user was successfully un-confirmed',
-            'updated'             => 'The user was successfully updated.',
-            'updated_password'    => "The user's password was successfully updated.",
+
+            'updated'             => 'Użytkownik został pomyślnie zapisany',
+            'update_error' => 'Wystąpił błąd podczas zapisu użytkownika',
+            'profile_picture_updated' => 'Zdjęcie profilowe zostało zapisanes',
+            'profile_picture_update_error' => 'Wystąpił błąd podczas zapisu zdjęcia profilowego'
         ],
     ],
 

@@ -55,7 +55,23 @@ class SpecialistController extends Controller
         $user->longitude = $input['longitude'];
         $user->specializations()->sync([$input['specialization_id'] => ['is_main' => true]]);
 
+        if ($user->save()) {
+            return redirect()->back()->withFlashSuccess(__('alerts.backend.users.updated'));
+        } else {
+            return redirect()->back()->withFlashDanger(__('alerts.backend.users.update_error'));
+        }
+
+
+    }
+
+    public function storeProfilePicture(Request $request) {
+        $user = User::find(Auth::user()->id);
+
+        $input = $request->input();
+
         if ($input['profile_picture'] and !empty($input['profile_picture'])) {
+
+            $previousPicture = $user->profile_picture;
 
             $image = $input['profile_picture'];  // your base64 encoded
             $image = str_replace('data:image/png;base64,', '', $image);
@@ -64,13 +80,22 @@ class SpecialistController extends Controller
             \File::put(storage_path(). '/app/public/avatars/' . $imageName, base64_decode($image));
 
             $user->profile_picture = $imageName;
+            if ($user->save()) {
+
+                if (!empty($previousPicture)) {
+                    $filename = storage_path('app/public/avatars/'.$previousPicture);
+
+                    if (file_exists($filename)) {
+                        unlink($filename);
+                    }
+                }
+
+                return redirect()->back()->withFlashSuccess(__('alerts.backend.users.profile_picture_updated'));
+            }
         }
 
-        if ($user->save()) {
-            return redirect()->back()->withFlashSuccess(__('alerts.backend.users.updated'));
-        } else {
-            return redirect()->back()->withFlashDanger(__('alerts.backend.users.update_error'));
-        }
+        return redirect()->back()->withFlashDanger(__('alerts.backend.users.profile_picture_update_error'));
+
 
 
     }
