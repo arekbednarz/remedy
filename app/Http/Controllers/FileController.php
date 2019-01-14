@@ -16,9 +16,12 @@ class FileController extends Controller
 
     public function upload(Request $request) {
 
+        $userId = \Auth::user()->id;
+        $key = $userId.'profilepicture'.$userId;
+
         $photo = $request->file('file');
 
-        $name = sha1(date('YmdHis') . str_random(30));
+        $name = sha1($key);
         $saveMame = $name . '.' . $photo->getClientOriginalExtension();
 
         if ($photo->storePubliclyAs($this->avatarsPath, $saveMame)) {

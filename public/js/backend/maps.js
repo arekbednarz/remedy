@@ -3,6 +3,17 @@ function initialize() {
 
     var lat = 52.069337;
     var lon = 19.480271;
+    var zom = 8;
+
+
+    if ($('#latitude').val() != '') {
+        lat = $('#latitude').val();
+        zom =15;
+    }
+
+    if ($('#longitude').val() != '') {
+        lon = $('#longitude').val();
+    }
 
 
     var mapOptions, map, marker, searchBox, city,
@@ -15,7 +26,7 @@ function initialize() {
 
     mapOptions = {
         // How far the maps zooms in.
-        zoom: 8,
+        zoom: zom,
         // Current Lat and Long position of the pin/
         center: new google.maps.LatLng(lat , lon ),
         // center : {

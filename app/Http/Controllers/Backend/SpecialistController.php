@@ -19,7 +19,6 @@ class SpecialistController extends Controller
      */
     public function index()
     {
-
         $user = auth()->user();
         $specializations = Specialization::all();
 

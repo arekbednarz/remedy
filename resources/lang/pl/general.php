@@ -28,6 +28,8 @@ return [
     'specialization' => 'Specjalizacja',
     'specialization_description' => 'Opis specjalizacji',
     'edit' => 'Edytuj',
-    'save' => 'Zapisz'
+    'save' => 'Zapisz',
+    'edit_description' => 'Edytuj opis',
+    'save_description' => 'Zapisz opis'
 
 ];
