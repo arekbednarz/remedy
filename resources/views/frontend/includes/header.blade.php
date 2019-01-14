@@ -28,7 +28,7 @@
                                 </li>
                                 <li><a href="submit-review.html">Urynoterapia</a></li>
                                 <li><a href="blog-1.html">Akupunktura</a></li>
-                                <li><a href="badges.html">Homeopatia</a></li>
+                                <li><a href="{{ route('frontend.user.specialist.index') }}">Homeopatia</a></li>
                             </ul>
                         </li>
                         <li class="submenu">

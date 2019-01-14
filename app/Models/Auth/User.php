@@ -102,4 +102,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Specialization::class)->withPivot(['is_main'])->wherePivot('is_main', true)->first();
     }
 
+    public function scopeSpecialists($query) {
+        return $query->where('is_specialist', true);
+    }
+
 }
