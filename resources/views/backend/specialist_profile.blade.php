@@ -139,6 +139,16 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
+                    <label>@lang('general.specialization_short_description')</label>
+                    <input type="text" class="form-control" placeholder="@lang('general.your_short_description')" name="short_description" value="{{ old('short_description', $user->short_description) }}">
+
+                </div>
+            </div>
+        </div>
+        <!-- /row-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
                     <label>@lang('general.specialization_description')</label>
                     <div id="description">{!! $user->description !!}</div>
                     <textarea style="display:none;" name="description" id="description_textarea">{{ $user->description }}</textarea>

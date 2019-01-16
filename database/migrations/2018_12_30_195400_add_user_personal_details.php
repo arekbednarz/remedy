@@ -25,6 +25,7 @@ class AddUserPersonalDetails extends Migration
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->text('description')->nullable();
+            $table->string('short_description')->nullable();
             $table->string('profile_picture')->nullable();
         });
     }
@@ -48,6 +49,7 @@ class AddUserPersonalDetails extends Migration
             $table->dropColumn('latitude');
             $table->dropColumn('longitude');
             $table->dropColumn('description');
+            $table->dropColumn('short_description');
             $table->dropColumn('profile_picture');
         });
     }

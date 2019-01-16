@@ -2,13 +2,13 @@
 
 var $profilePicPreview = $('#profile-pic-preview').croppie({
     viewport: {
-        width: 200,
-        height: 260,
+        width: 300,
+        height: 300,
         type: 'square'
     },
     boundary: {
-        width: 300,
-        height: 360
+        width: 350,
+        height: 350
     }
 });
 

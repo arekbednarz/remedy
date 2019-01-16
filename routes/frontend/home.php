@@ -41,5 +41,6 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
          * Specialist
          */
         Route::get('specialist', [SpecialistController::class, 'index'])->name('specialist.index');
+        Route::get('specialist/{id}', [SpecialistController::class, 'show'])->name('specialist.show');
     });
 });

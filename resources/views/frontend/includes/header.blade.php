@@ -1,4 +1,4 @@
-<header class="header_sticky">
+<header class="static">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-6">

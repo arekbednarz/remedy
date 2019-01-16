@@ -34,6 +34,7 @@ class SpecialistController extends Controller
                 'last_name' => 'required',
                 'phone_number' => 'required',
                 'description' => 'required',
+                'short_description' => 'required',
                 'address' => 'required'
             ]
         );
@@ -49,6 +50,7 @@ class SpecialistController extends Controller
         $user->facebook = $input['facebook'];
         $user->skype = $input['skype'];
         $user->description = $input['description'];
+        $user->short_description = $input['short_description'];
         $user->address = $input['address'];
         $user->city = $input['city'];
         $user->latitude = $input['latitude'];

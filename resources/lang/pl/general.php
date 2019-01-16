@@ -27,9 +27,20 @@ return [
     'state' => 'Województwo',
     'specialization' => 'Specjalizacja',
     'specialization_description' => 'Opis specjalizacji',
+    'specialization_short_description' => 'Krótki opis',
     'edit' => 'Edytuj',
     'save' => 'Zapisz',
     'edit_description' => 'Edytuj opis',
-    'save_description' => 'Zapisz opis'
+    'save_description' => 'Zapisz opis',
+    'sex_all' => 'Wszyscy',
+    'women' => 'Kobiety',
+    'men' => 'Mężczyźni',
+    'sort_by' => 'Sortuj',
+    'all_regions' => 'Wszystkie',
+    'view_profile' => 'Zobacz Profil',
+    'view_on_map' => 'Zobacz na mapie',
+    'showing' => 'Wyświetlono',
+    'of' => 'z',
+    'results' => 'wyników'
 
 ];

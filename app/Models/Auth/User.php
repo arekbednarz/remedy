@@ -106,4 +106,8 @@ class User extends Authenticatable
         return $query->where('is_specialist', true);
     }
 
+    public function profilePictureSrc() {
+        return "/storage/avatars/".(!empty($this->profile_picture) ? $this->profile_picture : 'no.jpg');
+    }
+
 }
