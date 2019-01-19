@@ -47,10 +47,22 @@
                                             <li>
                                                 <h6>@lang('general.address')</h6>
                                                 {{ $specialist->address }}
-                                                <a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank"> <strong>@lang('general.view_on_map')</strong></a>
+                                                <a href="https://www.google.com/maps/search/?api=1&query={{ $specialist->latitude }},{{$specialist->longitude}}" target="_blank"> <strong>@lang('general.view_on_map')</strong></a>
                                             </li>
                                             <li>
-                                                <h6>@lang('general.telephone')</h6> <a href="tel://000434323342">+00043 4323342</a> - <a href="tel://000434323342">+00043 4323342</a></li>
+                                                @if($specialist->phone_number or $specialist->mobile_number)
+                                                    <h6>@lang('general.telephone')</h6>
+                                                    @if($specialist->phone_number)
+                                                    <a href="tel://{{ $specialist->phone_number }}">{{ $specialist->phone_number }}</a>
+                                                    @endif
+                                                    @if($specialist->mobile_number)
+                                                        @if ($specialist->phone_number)
+                                                            -
+                                                        @endif
+                                                        <a href="tel://{{ $specialist->mobile_number }}">{{ $specialist->mobile_number }}</a>
+                                                    @endif
+                                                @endif
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -61,7 +73,7 @@
                             <!-- /profile -->
                             <div class="indent_title_in">
                                 <i class="pe-7s-user"></i>
-                                <h3>@lang('general.specialization_description')</h3>
+                                <h3>@lang('general.description')</h3>
                             </div>
                             <div class="wrapper_indent">
                                 {!! $specialist->description !!}

@@ -17,7 +17,7 @@ return [
     'basic_info' => 'Podstawowe informacje',
     'name' => 'Imię',
     'last_name' => 'Nazwisko',
-    'telephone' => 'Telefon stacjonarny',
+    'telephone' => 'Telefon',
     'mobile' => 'Telefon komórkowy',
     'email' => 'Email',
     'facebook' => 'Facebook',
@@ -41,6 +41,7 @@ return [
     'view_on_map' => 'Zobacz na mapie',
     'showing' => 'Wyświetlono',
     'of' => 'z',
-    'results' => 'wyników'
+    'results' => 'wyników',
+    'description' => 'Opis'
 
 ];
