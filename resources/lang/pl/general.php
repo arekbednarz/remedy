@@ -42,6 +42,8 @@ return [
     'showing' => 'Wyświetlono',
     'of' => 'z',
     'results' => 'wyników',
-    'description' => 'Opis'
+    'description' => 'Opis',
+    'reviews' => 'Recenzji',
+    'stars' => 'pkt'
 
 ];

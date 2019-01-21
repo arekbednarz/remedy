@@ -1,0 +1,2 @@
+- sprawdzić obsługę zera gwiazdek
+- like/dislike ocenę

@@ -1,9 +1,12 @@
 @extends('frontend.layouts.app')
 
+@push('after-styles')
+    <link href="{{ asset('/css/frontend/pages/profile_details.css') }}" rel="stylesheet">
+@endpush
+
 @section('title', app_name() . ' | ' . __('navs.general.specialists'))
 
 @section('content')
-
     <main style="transform: none;">
 
         <div class="container margin_60" style="transform: none;">
@@ -18,249 +21,13 @@
                             </ul>
                         </div>
                     </nav>
-                    <div id="section_1">
-                        <div class="box_general_3">
-                            <div class="profile">
-                                <div class="row">
-                                    <div class="col-lg-5 col-md-4">
-                                        <figure>
-                                            <img src="{{ $specialist->profilePictureSrc() }}" alt="" class="img-fluid">
-                                        </figure>
-                                    </div>
-                                    <div class="col-lg-7 col-md-8">
-                                        <small>{{ $specialist->mainSpecialization()->name }}</small>
-                                        <h1>{{ $specialist->first_name.' '.$specialist->last_name }}</h1>
-                                        <span class="rating">
-											<i class="icon_star voted"></i>
-											<i class="icon_star voted"></i>
-											<i class="icon_star voted"></i>
-											<i class="icon_star voted"></i>
-											<i class="icon_star"></i>
-											<small>(145)</small>
-											<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
-										</span>
-                                        <ul class="statistic">
-                                            <li>854 Views</li>
-                                            <li>124 Patients</li>
-                                        </ul>
-                                        <ul class="contacts">
-                                            <li>
-                                                <h6>@lang('general.address')</h6>
-                                                {{ $specialist->address }}
-                                                <a href="https://www.google.com/maps/search/?api=1&query={{ $specialist->latitude }},{{$specialist->longitude}}" target="_blank"> <strong>@lang('general.view_on_map')</strong></a>
-                                            </li>
-                                            <li>
-                                                @if($specialist->phone_number or $specialist->mobile_number)
-                                                    <h6>@lang('general.telephone')</h6>
-                                                    @if($specialist->phone_number)
-                                                    <a href="tel://{{ $specialist->phone_number }}">{{ $specialist->phone_number }}</a>
-                                                    @endif
-                                                    @if($specialist->mobile_number)
-                                                        @if ($specialist->phone_number)
-                                                            -
-                                                        @endif
-                                                        <a href="tel://{{ $specialist->mobile_number }}">{{ $specialist->mobile_number }}</a>
-                                                    @endif
-                                                @endif
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <hr>
-
-                            <!-- /profile -->
-                            <div class="indent_title_in">
-                                <i class="pe-7s-user"></i>
-                                <h3>@lang('general.description')</h3>
-                            </div>
-                            <div class="wrapper_indent">
-                                {!! $specialist->description !!}
-                                <!-- /row-->
-                            </div>
-                            <!-- /wrapper indent -->
-
-                            <hr>
-
-                            <!--<div class="indent_title_in">
-                                <i class="pe-7s-cash"></i>
-                                <h3>Prices &amp; Payments</h3>
-                                <p>Mussum ipsum cacilds, vidis litro abertis.</p>
-                            </div>
-                            <div class="wrapper_indent">
-                                <p>Zril causae ancillae sit ea. Dicam veritus mediocritatem sea ex, nec id agam eius. Te pri facete latine salutandi, scripta mediocrem et sed, cum ne mundi vulputate. Ne his sint graeco detraxit, posse exerci volutpat has in.</p>
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th>Service - Visit</th>
-                                            <th>Price</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>New patient visit</td>
-                                            <td>$34</td>
-                                        </tr>
-                                        <tr>
-                                            <td>General consultation</td>
-                                            <td>$60</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Back Pain</td>
-                                            <td>$40</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Diabetes Consultation</td>
-                                            <td>$55</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Eating disorder</td>
-                                            <td>$60</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Foot Pain</td>
-                                            <td>$35</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>-->
-                            <!--  /wrapper_indent -->
-                        </div>
-                        <!-- /section_1 -->
-                    </div>
                     <!-- /box_general -->
 
-                    <div id="section_2">
-                        <div class="box_general_3">
-                            <div class="reviews-container">
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div id="review_summary">
-                                            <strong>4.7</strong>
-                                            <div class="rating">
-                                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                                            </div>
-                                            <small>Based on 4 reviews</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-9">
-                                        <div class="row">
-                                            <div class="col-lg-10 col-9">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-2 col-3"><small><strong>5 stars</strong></small></div>
-                                        </div>
-                                        <!-- /row -->
-                                        <div class="row">
-                                            <div class="col-lg-10 col-9">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-2 col-3"><small><strong>4 stars</strong></small></div>
-                                        </div>
-                                        <!-- /row -->
-                                        <div class="row">
-                                            <div class="col-lg-10 col-9">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-2 col-3"><small><strong>3 stars</strong></small></div>
-                                        </div>
-                                        <!-- /row -->
-                                        <div class="row">
-                                            <div class="col-lg-10 col-9">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-2 col-3"><small><strong>2 stars</strong></small></div>
-                                        </div>
-                                        <!-- /row -->
-                                        <div class="row">
-                                            <div class="col-lg-10 col-9">
-                                                <div class="progress">
-                                                    <div class="progress-bar" role="progressbar" style="width: 0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-2 col-3"><small><strong>1 stars</strong></small></div>
-                                        </div>
-                                        <!-- /row -->
-                                    </div>
-                                </div>
-                                <!-- /row -->
+                    @include('frontend.pages.specialist.show_general')
 
-                                <hr>
+                    @include('frontend.pages.specialist.show_ratings')
 
-                                <div class="review-box clearfix">
-                                    <figure class="rev-thumb"><img src="http://via.placeholder.com/150x150.jpg" alt="">
-                                    </figure>
-                                    <div class="rev-content">
-                                        <div class="rating">
-                                            <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                                        </div>
-                                        <div class="rev-info">
-                                            Admin – April 03, 2016:
-                                        </div>
-                                        <div class="rev-text">
-                                            <p>
-                                                Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End review-box -->
 
-                                <div class="review-box clearfix">
-                                    <figure class="rev-thumb"><img src="http://via.placeholder.com/150x150.jpg" alt="">
-                                    </figure>
-                                    <div class="rev-content">
-                                        <div class="rating">
-                                            <i class="icon-star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                                        </div>
-                                        <div class="rev-info">
-                                            Ahsan – April 01, 2016
-                                        </div>
-                                        <div class="rev-text">
-                                            <p>
-                                                Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End review-box -->
-
-                                <div class="review-box clearfix">
-                                    <figure class="rev-thumb"><img src="http://via.placeholder.com/150x150.jpg" alt="">
-                                    </figure>
-                                    <div class="rev-content">
-                                        <div class="rating">
-                                            <i class="icon-star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                                        </div>
-                                        <div class="rev-info">
-                                            Sara – March 31, 2016
-                                        </div>
-                                        <div class="rev-text">
-                                            <p>
-                                                Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End review-box -->
-                            </div>
-                            <!-- End review-container -->
-                            <hr>
-                            <div class="text-right"><a href="submit-review.html" class="btn_1">Submit review</a></div>
-                        </div>
-                    </div>
-                    <!-- /section_2 -->
                 </div>
                 <!-- /col -->
                 <aside class="col-xl-4 col-lg-4" id="sidebar" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">

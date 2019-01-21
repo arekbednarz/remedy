@@ -2,6 +2,7 @@
 
 namespace App\Models\Auth;
 
+use App\Models\Rating;
 use App\Models\Specialization;
 use App\Models\Traits\Uuid;
 use Spatie\Permission\Traits\HasRoles;
@@ -102,6 +103,14 @@ class User extends Authenticatable
         return $this->belongsToMany(Specialization::class)->withPivot(['is_main'])->wherePivot('is_main', true)->first();
     }
 
+    public function ratings() {
+        return $this->hasMany(Rating::class, 'specialist_id');
+    }
+
+    public function givenRatings() {
+        return $this->hasMany(Rating::class);
+    }
+
     public function scopeSpecialists($query) {
         return $query->where('is_specialist', true);
     }
@@ -109,5 +118,27 @@ class User extends Authenticatable
     public function profilePictureSrc() {
         return "/storage/avatars/".(!empty($this->profile_picture) ? $this->profile_picture : 'no.jpg');
     }
+
+    public function ratingDetails() {
+        $ratings = $this->ratings()->selectRaw('rating, count(rating) as count_rating')->groupBy(['rating'])->get();
+
+        $result = ['ratings' => $ratings->pluck('count_rating', 'rating')->toArray()];
+
+        $countReviews = array_sum($result['ratings']);
+
+        $sum = '0';
+        $result['percentage'] = [];
+        foreach ($result['ratings'] as $rating => $count) {
+            $sum += ($rating*$count);
+            $result['percentage'][$rating] = number_format((($count*100)/$countReviews), 1);
+        }
+        $average = number_format($sum/$countReviews, 1);
+
+        $result['count_reviews'] = $countReviews;
+        $result['average'] = $average;
+
+        return $result;
+    }
+
 
 }

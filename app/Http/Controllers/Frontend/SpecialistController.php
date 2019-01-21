@@ -26,8 +26,9 @@ class SpecialistController extends Controller
 
     public function show($id) {
         $specialist = User::specialists()->find($id);
+        $ratings = $specialist->ratingDetails();
         if ($specialist) {
-            return view('frontend.pages.specialist.show', compact('specialist'));
+            return view('frontend.pages.specialist.show', compact('specialist', 'ratings'));
         } else {
             abort(404);
         }
