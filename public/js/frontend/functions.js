@@ -117,10 +117,11 @@
 	$('#booking_date').dateDropper();
 		$('#booking_time').timeDropper({
 			setCurrentTime: false,
-			meridians: true,
+			meridians: false,
 			primaryColor: "#e74e84",
 			borderColor: "#e74e84",
-			minutesInterval: '15'
+			minutesInterval: '15',
+			format: "HH:mm"
 		});
 		
 		var $sticky_nav= $('#secondary_nav');

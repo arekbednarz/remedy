@@ -16,7 +16,7 @@
                         <div class="container">
                             <ul class="clearfix">
                                 <li><a href="#section_1" class="active">@lang('general.general_info')</a></li>
-                                <li><a href="#section_2">@lang('general.reviews')</a></li>
+                                <li><a href="#section_2">@lang('general.menu_reviews')</a></li>
                                 <li><a href="#sidebar">@lang('general.booking')</a></li>
                             </ul>
                         </div>
@@ -42,7 +42,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <input class="form-control picker-input" type="text" id="booking_date" data-lang="en" data-min-year="2017" data-max-year="2020" data-disabled-days="10/17/2017,11/18/2017" data-id="datedropper-0" readonly="">
+                                            <input class="form-control" type="text" id="booking_date" data-lang="pl" data-min-year="2017" data-max-year="2020" data-disabled-days="10/17/2017,11/18/2017" data-id="datedropper-0" readonly="">
                                         </div>
                                     </div>
                                     <div class="col-6">

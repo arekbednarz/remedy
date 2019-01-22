@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col-lg-10 col-9">
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: {{ $ratings['percentage']['5'] }}%" aria-valuenow="{{ $ratings['percentage']['5'] }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" style="width: {{ !empty($ratings['percentage']['5']) ? $ratings['percentage']['5'] : '0' }}%" aria-valuenow="{{ !empty($ratings['percentage']['5']) ? $ratings['percentage']['5'] : '0' }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-3"><small><strong>5 @lang('general.stars')</strong></small></div>
@@ -30,7 +30,7 @@
                     <div class="row">
                         <div class="col-lg-10 col-9">
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: {{ $ratings['percentage']['4'] }}%" aria-valuenow="{{ $ratings['percentage']['4'] }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" style="width: {{ !empty($ratings['percentage']['4']) ? $ratings['percentage']['4'] : '0' }}%" aria-valuenow="{{ !empty($ratings['percentage']['4']) ? $ratings['percentage']['4'] : '0' }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-3"><small><strong>4 @lang('general.stars')</strong></small></div>
@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-lg-10 col-9">
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: {{ $ratings['percentage']['3'] }}%" aria-valuenow="{{ $ratings['percentage']['3'] }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" style="width: {{ !empty($ratings['percentage']['3']) ? $ratings['percentage']['3'] : '0' }}%" aria-valuenow="{{ !empty($ratings['percentage']['3']) ? $ratings['percentage']['3'] : '0' }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-3"><small><strong>3 @lang('general.stars')</strong></small></div>
@@ -48,7 +48,7 @@
                     <div class="row">
                         <div class="col-lg-10 col-9">
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: {{ $ratings['percentage']['2'] }}%" aria-valuenow="{{ $ratings['percentage']['2'] }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" style="width: {{ !empty($ratings['percentage']['2']) ? $ratings['percentage']['2'] : '0' }}%" aria-valuenow="{{ !empty($ratings['percentage']['2']) ? $ratings['percentage']['2'] : '0' }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-3"><small><strong>2 @lang('general.stars')</strong></small></div>
@@ -57,7 +57,7 @@
                     <div class="row">
                         <div class="col-lg-10 col-9">
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: {{ $ratings['percentage']['1'] }}" aria-valuenow="{{ $ratings['percentage']['1'] }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" style="width: {{ !empty($ratings['percentage']['1']) ? $ratings['percentage']['1'] : '0' }}" aria-valuenow="{{ !empty($ratings['percentage']['1']) ? $ratings['percentage']['1'] : '0' }}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-3"><small><strong>1 @lang('general.stars')</strong></small></div>

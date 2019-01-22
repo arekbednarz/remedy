@@ -62,7 +62,7 @@
 
             <!-- COMMON SCRIPTS -->
             <script src="{{ asset('js/frontend/jquery-2.2.4.min.js') }}"></script>
-            <script src="{{ asset('js/frontend/common_scripts.min.js') }}"></script>
+            <script src="{{ asset('js/frontend/common_scripts.js') }}"></script>
             <script src="{{ asset('js/frontend/functions.js') }}"></script>
 
             @stack('after-scripts')

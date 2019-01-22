@@ -43,7 +43,10 @@ return [
     'of' => 'z',
     'results' => 'wyników',
     'description' => 'Opis',
+    'general_info' => 'Informacje',
+    'menu_reviews' => 'Recenzje',
     'reviews' => 'Recenzji',
-    'stars' => 'pkt'
+    'stars' => 'pkt',
+    'directions' => 'Jak dojechać?'
 
 ];

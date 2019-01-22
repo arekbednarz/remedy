@@ -132,7 +132,7 @@ class User extends Authenticatable
             $sum += ($rating*$count);
             $result['percentage'][$rating] = number_format((($count*100)/$countReviews), 1);
         }
-        $average = number_format($sum/$countReviews, 1);
+        $average = number_format(($countReviews ? $sum/$countReviews : 0), 1);
 
         $result['count_reviews'] = $countReviews;
         $result['average'] = $average;
