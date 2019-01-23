@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Auth\User;
+use App\Models\Specialist;
 use App\Models\Specialization;
 use Illuminate\Http\Request;
 use Auth;
@@ -19,7 +20,7 @@ class SpecialistController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
+        $user = Specialist::findOrFail(Auth::user()->id);
         $specializations = Specialization::all();
 
         //dd($user->toArray());
@@ -39,7 +40,7 @@ class SpecialistController extends Controller
             ]
         );
 
-        $user = User::find(Auth::user()->id);
+        $user = Specialist::find(Auth::user()->id);
 
         $input = $request->input();
 

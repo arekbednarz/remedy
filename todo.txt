@@ -1,2 +1,9 @@
-- sprawdzić obsługę zera gwiazdek
+- wiadomość o braku ocen
 - like/dislike ocenę
+
+- ADMIN OCEN
+- odpowiedź specjalisty na ocenę
+- akceptacja oceny przez moderatora
+- zgłaszanie komentarzy
+
+- licznik unikalnych wejść na profil
