@@ -4,6 +4,10 @@
     <link href="{{ asset('/css/frontend/pages/profile_details.css') }}" rel="stylesheet">
 @endpush
 
+@push('after-scripts')
+    <script src="{{ asset('js/frontend/specialist.js') }}"></script>
+@endpush
+
 @section('title', app_name() . ' | ' . __('navs.general.specialists'))
 
 @section('content')

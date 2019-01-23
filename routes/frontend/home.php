@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\SpecialistController;
+use App\Http\Controllers\Frontend\RatingController;
 
 /*
  * Frontend Controllers
@@ -42,5 +43,14 @@ Route::group(['middleware' => [/*'auth', 'password_expires'*/]], function () {
          */
         Route::get('specialist', [SpecialistController::class, 'index'])->name('specialist.index');
         Route::get('specialist/{id}', [SpecialistController::class, 'show'])->name('specialist.show');
+
+
+    });
+
+    Route::group(['namespace' => 'Rating', 'as' => 'rating.'], function () {
+        Route::get('review/ajax_pagination/{specialist_id}',[RatingController::class, 'indexAjax'])->name('ajax.pagination');
+
+        Route::get('review/create/{specialist_id}', [RatingController::class, 'create'])->name('create');
+        Route::post('review/store', [RatingController::class, 'store'])->name('store');
     });
 });

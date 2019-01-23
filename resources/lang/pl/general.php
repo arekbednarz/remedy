@@ -47,6 +47,14 @@ return [
     'menu_reviews' => 'Recenzje',
     'reviews' => 'Recenzji',
     'stars' => 'pkt',
-    'directions' => 'Jak dojechać?'
+    'directions' => 'Jak dojechać?',
+    'add_review' => 'Dodaj opinię',
+    'write_review_for' => 'Opinia o specjaliście: ',
+    'overall_rating' => 'Ogólna ocena',
+    'review_title' => 'Tytuł opinii',
+    'your_review' => 'Twoja opinia',
+    'review_title_placeholder' => 'Jeśli miałbyś to opisać jednym zdaniem, co byś powiedział?',
+    'review_placeholder' => 'Napisz swoją opinię tutaj...',
+    'save_review' => 'Dodaj opinię'
 
 ];

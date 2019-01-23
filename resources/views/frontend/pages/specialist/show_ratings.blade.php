@@ -69,15 +69,15 @@
 
             <hr>
 
-            @foreach($specialist->ratings as $rating)
+            <div id="rating_container">
+                {!! $firstReviews !!}
+            </div>
 
-                @include('frontend.pages.specialist.show_review_row')
 
-            @endforeach
         </div>
         <!-- End review-container -->
         <hr>
-        <div class="text-right"><a href="submit-review.html" class="btn_1">Submit review</a></div>
+        <div class="text-right"><a href="{{ route('frontend.rating.create', $specialist->id) }}" class="btn_1">@lang('general.add_review')</a></div>
     </div>
 </div>
 <!-- /section_2 -->

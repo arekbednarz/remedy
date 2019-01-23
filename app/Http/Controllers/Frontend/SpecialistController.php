@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 
 use App\Http\Controllers\Controller;
-use App\Models\Auth\User;
-use App\Models\Specialization;
+use App\Models\Specialist;
 use Illuminate\Http\Request;
-use Auth;
 
 /**
  * Class DashboardController.
@@ -19,20 +17,16 @@ class SpecialistController extends Controller
      */
     public function index(Request $request)
     {
-        $specialists = User::specialists()->paginate(2);
-
+        $specialists = Specialist::paginate(2);
         return view('frontend.pages.specialist.index', compact('specialists'));
     }
 
-    public function show($id) {
-        $specialist = User::specialists()->find($id);
+    public function show($id, RatingController $ratingController) {
+        $specialist = Specialist::findOrFail($id);
         $ratings = $specialist->ratingDetails();
-        if ($specialist) {
-            return view('frontend.pages.specialist.show', compact('specialist', 'ratings'));
-        } else {
-            abort(404);
-        }
 
+        $firstReviews = $ratingController->indexAjax($specialist->id);
+        return view('frontend.pages.specialist.show', compact('specialist', 'ratings', 'firstReviews'));
     }
 
 }
