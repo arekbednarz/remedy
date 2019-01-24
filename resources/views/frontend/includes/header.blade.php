@@ -9,8 +9,20 @@
             <nav class="col-lg-9 col-6">
                 <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="{{route('frontend.index')}}"><span>Menu mobile</span></a>
                 <ul id="top_access">
-                    <li><a href="{{route('frontend.auth.login')}}"><i class="pe-7s-user"></i></a></li>
-                    <li><a href="{{route('frontend.auth.register')}}"><i class="pe-7s-add-user"></i></a></li>
+                    @if(Auth::check())
+                        <li id="user" class="submenu">
+                            <a href="{{ route('admin.dashboard') }}">
+                                <figure><img src="{{ Auth::user()->profilePictureSrc() }}" alt=""></figure>
+                                {{ Auth::user()->first_name }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('frontend.auth.logout') }}">@lang('navs.general.logout')</a>
+                        </li>
+                    @else
+                        <li><a href="{{route('frontend.auth.login')}}"><i class="pe-7s-user"></i></a></li>
+                        <li><a href="{{route('frontend.auth.register')}}"><i class="pe-7s-add-user"></i></a></li>
+                    @endif
                 </ul>
                 <div class="main-menu">
                     <ul>
@@ -25,13 +37,15 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li class="submenu">
-                            <a href="#0" class="show-submenu">Zarejestruj się<i class="icon-down-open-mini"></i></a>
-                            <ul>
-                                <li><a href="{{route('frontend.auth.register.specialist')}}">Jako Specjalista</a></li>
-                                <li><a href="{{route('frontend.auth.register')}}">Jako użytkownik</a></li>
-                            </ul>
-                        </li>
+                        @if(Auth::guest())
+                            <li class="submenu">
+                                <a href="#0" class="show-submenu">Zarejestruj się<i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li><a href="{{route('frontend.auth.register.specialist')}}">Jako Specjalista</a></li>
+                                    <li><a href="{{route('frontend.auth.register')}}">Jako użytkownik</a></li>
+                                </ul>
+                            </li>
+                        @endif
                     </ul>
                 </div>
                 <!-- /main-menu -->

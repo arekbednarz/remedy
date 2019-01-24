@@ -90,7 +90,7 @@
 
                     @if (!$specialists->isEmpty())
                         @foreach($specialists as $specialist)
-                            @include('frontend.pages.specialist.specialist_row', ['specialist' => $specialist])
+                            @include('frontend.pages.specialist.specialist_row', ['specialist' => $specialist, 'ratings' => $specialist->ratingDetails()])
                         @endforeach
                     @else
                         <div class="row justify-content-center">

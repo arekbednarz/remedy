@@ -96,4 +96,8 @@ class User extends Authenticatable
         return $this->hasMany(Rating::class);
     }
 
+    public function profilePictureSrc() {
+        return "/storage/avatars/".(!empty($this->profile_picture) ? $this->profile_picture : 'no.jpg');
+    }
+
 }

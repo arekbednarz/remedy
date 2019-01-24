@@ -40,10 +40,6 @@ class Specialist extends User
         return $this->hasMany(Rating::class, 'specialist_id');
     }
 
-    public function profilePictureSrc() {
-        return "/storage/avatars/".(!empty($this->profile_picture) ? $this->profile_picture : 'no.jpg');
-    }
-
     public function ratingDetails() {
         $ratings = $this->ratings()->selectRaw('rating, count(rating) as count_rating')->groupBy(['rating'])->get();
 

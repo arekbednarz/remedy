@@ -1,3 +1,8 @@
 #rating_count {
     margin-bottom: 0px !important;
 }
+
+#specialist_description ul{
+    list-style: inherit;
+    padding: inherit;
+}

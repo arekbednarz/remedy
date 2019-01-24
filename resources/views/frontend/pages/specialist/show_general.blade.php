@@ -11,14 +11,13 @@
                     <small>{{ $specialist->mainSpecialization()->name }}</small>
                     <h1>{{ $specialist->first_name.' '.$specialist->last_name }}</h1>
                     <span class="rating">
-											<i class="icon_star voted"></i>
-											<i class="icon_star voted"></i>
-											<i class="icon_star voted"></i>
-											<i class="icon_star voted"></i>
-											<i class="icon_star"></i>
-											<small>(145)</small>
-											<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
-										</span>
+                        <i class="icon_star {{ $ratings['average'] >= 1 ? 'voted' : '' }}"></i>
+                        <i class="icon_star {{ $ratings['average'] >= 2 ? 'voted' : '' }}"></i>
+                        <i class="icon_star {{ $ratings['average'] >= 3 ? 'voted' : '' }}"></i>
+                        <i class="icon_star {{ $ratings['average'] >= 4 ? 'voted' : '' }}"></i>
+                        <i class="icon_star {{ $ratings['average'] >= 5 ? 'voted' : '' }}"></i>
+                        <small>({{ $ratings['count_reviews'] }})</small>
+                    </span>
                     <ul class="statistic">
                         <li>854 Views</li>
                         <li>124 Patients</li>
@@ -55,7 +54,7 @@
             <i class="pe-7s-user"></i>
             <h3>@lang('general.description')</h3>
         </div>
-        <div class="wrapper_indent">
+        <div class="wrapper_indent" id="specialist_description">
         {!! $specialist->description !!}
         <!-- /row-->
         </div>
