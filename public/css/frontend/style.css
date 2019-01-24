@@ -2315,13 +2315,17 @@ a.wish_bt:hover:after {
 
 .filters_listing ul li:nth-child(2) {
   float: left;
-  margin-right: 0;
 }
 .filters_listing ul li:nth-child(3) {
+  float: left;
+  margin-right: 0;
+}
+
+.filters_listing ul li:nth-child(4) {
   float: right;
 }
 @media (max-width: 767px) {
-  .filters_listing ul li:nth-child(3) {
+  .filters_listing ul li:nth-child(4) {
     /* For less than 767px */
     float: left;
     clear: both;

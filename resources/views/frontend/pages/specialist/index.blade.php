@@ -2,6 +2,10 @@
 
 @section('title', app_name() . ' | ' . __('navs.general.specialists'))
 
+@push('after-styles')
+    <link href="{{ asset('css/frontend/pages/specialist_search_list.css') }}" rel="stylesheet">
+@endpush
+
 @push('after-scripts')
     <script src="{{ asset('js/frontend/search.js') }}"></script>
 @endpush
@@ -68,6 +72,10 @@
                                     <option value="{{ $state->id }}" {{ $request['state'] == $state->id ? 'selected' : '' }}>{{ $state->name }}</option>
                                 @endforeach
                             </select>
+                        </li>
+                        <li>
+                            <h6>@lang('general.city')</h6>
+                            <input type="text" class="form-control" id="search-city-input" name="city" value="{{ $request['city'] }}">
                         </li>
                         <li>
                             <h6>@lang('general.sort_by')</h6>

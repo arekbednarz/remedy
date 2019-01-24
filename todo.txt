@@ -1,5 +1,4 @@
 - wiadomość o braku ocen
-- like/dislike ocenę
 
 - ADMIN OCEN
 - odpowiedź specjalisty na ocenę
@@ -7,3 +6,5 @@
 - zgłaszanie komentarzy
 
 - licznik unikalnych wejść na profil
+
+- czyszczenie wyników szukania

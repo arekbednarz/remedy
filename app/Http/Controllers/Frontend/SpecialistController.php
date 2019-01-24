@@ -48,6 +48,10 @@ class SpecialistController extends Controller
             $query->where('state_id', $request['state']);
         }
 
+        if (!empty($request['city'])) {
+            $query->where('city', 'like', '%'.$request['city'].'%');
+        }
+
         if (!empty($request['query'])) {
             $query->where(function ($query) use ($request) {
                 if (!($request['radio_search'] == 'specialist')) {

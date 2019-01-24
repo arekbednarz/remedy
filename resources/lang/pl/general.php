@@ -59,6 +59,7 @@ return [
     'specialists_no_results' => 'Nie zaleziono specialistów',
     'specialists_no_results_message' => 'Spróbuj zawęzić filtry wyszukiwania',
     'all_specializations' => 'Wszystkie',
-    'please_select' => 'Proszę wybrać...'
+    'please_select' => 'Proszę wybrać...',
+    'city' => 'Miejscowość'
 
 ];
