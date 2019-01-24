@@ -20,15 +20,9 @@
                         <li class="submenu">
                             <a href="#0" class="show-submenu">Metody leczenia<i class="icon-down-open-mini"></i></a>
                             <ul>
-                                <li class="third-level"><a href="#0">Akupresura</a>
-                                    <ul>
-                                        <li><a href="list.html">Refleksologia</a></li>
-                                        <li><a href="grid-list.html">Masaż głowy</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="submit-review.html">Urynoterapia</a></li>
-                                <li><a href="blog-1.html">Akupunktura</a></li>
-                                <li><a href="{{ route('frontend.user.specialist.index') }}">Homeopatia</a></li>
+                                @foreach(\App\Models\Specialization::all() as $specialization)
+                                    <li><a href="{{ route('frontend.user.specialist.index') }}?specialization={{ $specialization->id }}">{{ $specialization->name }}</a>
+                                @endforeach
                             </ul>
                         </li>
                         <li class="submenu">

@@ -170,9 +170,10 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>@lang('general.state')</label>
-                    <select class="form-control">
-                        @foreach(\App\Models\State::getStatesByCountrycode(\App\Models\State::POLAND_CODE) as $id => $name)
-                            <option value="{{ $id }}" {{ $user->state == $id ? 'selected="selected"' : '' }}>{{ $name }}</option>
+                    <select class="form-control" name="state">
+                        <option value="">@lang('general.please_select')</option>
+                        @foreach($states as $state))
+                            <option value="{{ $state->id }}" {{ $user->state_id == $state->id ? 'selected="selected"' : '' }}>{{ $state->name }}</option>
                         @endforeach
                     </select>
                 </div>

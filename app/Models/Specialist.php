@@ -24,6 +24,10 @@ class Specialist extends User
         static::addGlobalScope(new SpecialistScope());
     }
 
+    public function state() {
+        return $this->belongsTo(State::class);
+    }
+
     public function specializations() {
         return $this->belongsToMany(Specialization::class, 'specialization_user', 'user_id')->withPivot(['is_main']);
     }

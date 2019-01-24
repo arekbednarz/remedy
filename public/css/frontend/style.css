@@ -2312,15 +2312,10 @@ a.wish_bt:hover:after {
 .filters_listing ul li:first-child {
   float: left;
 }
+
 .filters_listing ul li:nth-child(2) {
-  float: right;
+  float: left;
   margin-right: 0;
-}
-@media (max-width: 767px) {
-  .filters_listing ul li:nth-child(2) {
-    /* For less than 767px */
-    float: left;
-  }
 }
 .filters_listing ul li:nth-child(3) {
   float: right;
@@ -2415,7 +2410,7 @@ a.wish_bt:hover:after {
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   border-radius: 3px;
-  min-width: 160px;
+  min-width: 200px;
 }
 
 .sbSelector {

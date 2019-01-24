@@ -55,6 +55,10 @@ return [
     'your_review' => 'Twoja opinia',
     'review_title_placeholder' => 'Jeśli miałbyś to opisać jednym zdaniem, co byś powiedział?',
     'review_placeholder' => 'Napisz swoją opinię tutaj...',
-    'save_review' => 'Dodaj opinię'
+    'save_review' => 'Dodaj opinię',
+    'specialists_no_results' => 'Nie zaleziono specialistów',
+    'specialists_no_results_message' => 'Spróbuj zawęzić filtry wyszukiwania',
+    'all_specializations' => 'Wszystkie',
+    'please_select' => 'Proszę wybrać...'
 
 ];

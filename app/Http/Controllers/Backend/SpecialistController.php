@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Auth\User;
 use App\Models\Specialist;
 use App\Models\Specialization;
+use App\Models\State;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -22,9 +23,10 @@ class SpecialistController extends Controller
     {
         $user = Specialist::findOrFail(Auth::user()->id);
         $specializations = Specialization::all();
+        $states = State::where('country_code', 'PL')->get();
 
         //dd($user->toArray());
-        return view('backend.specialist_profile', compact('user', 'specializations'));
+        return view('backend.specialist_profile', compact('user', 'specializations', 'states'));
     }
 
     public function store(Request $request) {
@@ -36,7 +38,8 @@ class SpecialistController extends Controller
                 'phone_number' => 'required',
                 'description' => 'required',
                 'short_description' => 'required',
-                'address' => 'required'
+                'address' => 'required',
+                'state' => 'required'
             ]
         );
 
@@ -57,6 +60,7 @@ class SpecialistController extends Controller
         $user->latitude = $input['latitude'];
         $user->longitude = $input['longitude'];
         $user->specializations()->sync([$input['specialization_id'] => ['is_main' => true]]);
+        $user->state()->associate($input['state']);
 
         if ($user->save()) {
             return redirect()->back()->withFlashSuccess(__('alerts.backend.users.updated'));
