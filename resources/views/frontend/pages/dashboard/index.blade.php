@@ -48,8 +48,8 @@
                         <h3>@lang('general.find_by_region')</h3>
                     </div>
                     <ul>
-                        @foreach(['dolnośląskie','kujawsko-pomorskie','lubelskie','lubuskie','łódzkie','małopolskie','mazowieckie','opolskie','podkarpackie','podlaskie','pomorskie','śląskie','świętokrzyskie','warmińsko-mazurskie','wielkopolskie','zachodniopomorskie'] as $regionaName)
-                            <li><a href="#0"><strong>23</strong>{{ ucfirst($regionaName) }}</a></li>
+                        @foreach($states as $state)
+                            <li><a href="{{ route('frontend.user.specialist.index') }}?state={{ $state->id }}"><strong>{{ $state->specialists_count }}</strong>{{ ucfirst($state->name) }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -61,16 +61,9 @@
                         <h3>@lang('general.find_by_method')</h3>
                     </div>
                     <ul>
-                        <li><a href="#0"><strong>23</strong>Allergist</a></li>
-                        <li><a href="#0"><strong>23</strong>Cardiologist</a></li>
-                        <li><a href="#0"><strong>23</strong>Chiropractor</a></li>
-                        <li><a href="#0"><strong>23</strong>Dentist</a></li>
-                        <li><a href="#0"><strong>23</strong>Dermatologist</a></li>
-                        <li><a href="#0"><strong>23</strong>Gastroenterologist</a></li>
-                        <li><a href="#0"><strong>23</strong>Ophthalmologist</a></li>
-                        <li><a href="#0"><strong>23</strong>Optometrist</a></li>
-                        <li><a href="#0"><strong>23</strong>Pediatrician</a></li>
-                        <li><a href="#0">More....</a></li>
+                        @foreach($specializations as $specialization)
+                            <li><a href="{{ route('frontend.user.specialist.index') }}?specialization={{ $specialization->id }}"><strong>{{ $specialization->users_count }}</strong>{{ $specialization->name }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
