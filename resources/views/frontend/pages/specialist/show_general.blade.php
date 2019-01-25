@@ -19,8 +19,8 @@
                         <small>({{ $ratings['count_reviews'] }})</small>
                     </span>
                     <ul class="statistic">
-                        <li>854 Views</li>
-                        <li>124 Patients</li>
+                        <li>{{ $visits }} @lang('general.visits')</li>
+                        <li>124 <i class="icon-heart"></i></li>
                     </ul>
                     <ul class="contacts">
                         <li>

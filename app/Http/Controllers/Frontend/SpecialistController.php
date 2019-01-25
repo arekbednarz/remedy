@@ -8,12 +8,15 @@ use App\Models\Specialist;
 use App\Models\Specialization;
 use App\Models\State;
 use Illuminate\Http\Request;
+use Counter;
 
 /**
  * Class DashboardController.
  */
 class SpecialistController extends Controller
 {
+
+    const SPECIALISTS_PER_PAGE = 5;
     /**
      * @return \Illuminate\View\View
      */
@@ -28,10 +31,13 @@ class SpecialistController extends Controller
 
     public function show($id, RatingController $ratingController) {
         $specialist = Specialist::findOrFail($id);
+
+        $visits = Counter::showAndCount('user-profile', $specialist->id);
+
         $ratings = $specialist->ratingDetails();
 
         $firstReviews = $ratingController->indexAjax($specialist->id);
-        return view('frontend.pages.specialist.show', compact('specialist', 'ratings', 'firstReviews'));
+        return view('frontend.pages.specialist.show', compact('specialist', 'ratings', 'firstReviews', 'visits'));
     }
 
     public function getFiltered(Request $request) {
@@ -72,7 +78,7 @@ class SpecialistController extends Controller
             });
         }
 
-        return $query->paginate(2);
+        return $query->paginate(self::SPECIALISTS_PER_PAGE);
     }
 
 }

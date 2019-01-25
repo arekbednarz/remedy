@@ -8,3 +8,5 @@
 - licznik unikalnych wejść na profil
 
 - czyszczenie wyników szukania
+
+- widok specjalisty, czesc po prawej - cos tam dac

@@ -2878,7 +2878,7 @@
 	}
 
 	/**
-	 * Extends event data.
+	 * Extended event data.
 	 * @protected
 	 * @param {Event} event - The event object which gets thrown.
 	 */

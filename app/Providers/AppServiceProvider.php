@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Extended\MyCounter;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -81,5 +82,9 @@ class AppServiceProvider extends ServiceProvider
              */
             $loader->alias('Debugbar', \Barryvdh\Debugbar\Facade::class);
         }
+
+        $this->app->singleton('counter', function() {
+            return $this->app->make(MyCounter::class);
+        });
     }
 }

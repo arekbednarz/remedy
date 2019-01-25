@@ -14,9 +14,6 @@
         <i class="icon_star {{ $ratings['average'] >= 5 ? 'voted' : '' }}"></i>
         <small>({{ $ratings['count_reviews'] }})</small>
     </span>
-
-
-
     <ul>
         <li><a href="https://www.google.com/maps/search/?api=1&query={{ $specialist->latitude }},{{$specialist->longitude}}" target="_blank"> @lang('general.view_on_map')</a></li>
         <li><a href="https://www.google.com/maps/dir/?api=1&dir_action=navigate&origin=&destination={{ $specialist->latitude }},{{$specialist->longitude}}" target="_blank"> @lang('general.directions')</a></li>

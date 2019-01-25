@@ -60,3 +60,20 @@ $factory->state(User::class, 'softDeleted', function () {
         'deleted_at' => \Illuminate\Support\Carbon::now(),
     ];
 });
+
+$factory->state(User::class, 'specialist', function (Generator $faker) {
+    return [
+        'is_man' => $faker->boolean(),
+        'phone_number' => $faker->phoneNumber,
+        'mobile_number' => $faker->phoneNumber,
+        'skype' => $faker->name.'_'.$faker->word,
+        'facebook' => 'http://www.facebook.com/'.$faker->lastName,
+        'address' => $faker->address,
+        'city' => $faker->city,
+        'latitude' => $faker->latitude,
+        'longitude' => $faker->longitude,
+        'short_description' => $faker->sentence(10),
+        'description' => $faker->sentence(20),
+        'state_id' => $faker->randomElement(\App\Models\State::pluck('id'))
+    ];
+});
