@@ -5,46 +5,17 @@
             <p>@lang('general.most_viewed_experts_description')</p>
         </div>
         <div id="reccomended" class="owl-carousel owl-theme">
-            <div class="item">
-                <a href="detail-page.html">
-                    <div class="views"><i class="icon-eye-7"></i>140</div>
-                    <div class="title">
-                        <h4>Dr. Julia Holmes<em>Pediatrician - Cardiologist</em></h4>
-                    </div><img src="http://via.placeholder.com/350x500.jpg" alt="">
-                </a>
-            </div>
-            <div class="item">
-                <a href="detail-page.html">
-                    <div class="views"><i class="icon-eye-7"></i>120</div>
-                    <div class="title">
-                        <h4>Dr. Julia Holmes<em>Pediatrician</em></h4>
-                    </div><img src="http://via.placeholder.com/350x500.jpg" alt="">
-                </a>
-            </div>
-            <div class="item">
-                <a href="detail-page.html">
-                    <div class="views"><i class="icon-eye-7"></i>115</div>
-                    <div class="title">
-                        <h4>Dr. Julia Holmes<em>Pediatrician</em></h4>
-                    </div><img src="http://via.placeholder.com/350x500.jpg" alt="">
-                </a>
-            </div>
-            <div class="item">
-                <a href="detail-page.html">
-                    <div class="views"><i class="icon-eye-7"></i>98</div>
-                    <div class="title">
-                        <h4>Dr. Julia Holmes<em>Pediatrician</em></h4>
-                    </div><img src="http://via.placeholder.com/350x500.jpg" alt="">
-                </a>
-            </div>
-            <div class="item">
-                <a href="detail-page.html">
-                    <div class="views"><i class="icon-eye-7"></i>98</div>
-                    <div class="title">
-                        <h4>Dr. Julia Holmes<em>Pediatrician</em></h4>
-                    </div><img src="http://via.placeholder.com/350x500.jpg" alt="">
-                </a>
-            </div>
+            @foreach($topSpecialists as $specialist)
+                <div class="item">
+                    <a href="{{ route('frontend.user.specialist.show', [$specialist->specialist->id]) }}">
+                        <div class="views"><i class="icon-eye-7"></i>{{ $specialist->total }}</div>
+                        <div class="title">
+                            <h4>{{ $specialist->specialist->first_name.' '.$specialist->specialist->last_name }} <em>{{ $specialist->specialist->mainSpecialization()->name }}</em></h4>
+                        </div><img src="{{ $specialist->specialist->profilePictureSrc() }}" alt="">
+                    </a>
+                </div>
+            @endforeach
+
         </div>
         <!-- /carousel -->
     </div>
