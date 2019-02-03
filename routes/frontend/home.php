@@ -3,8 +3,6 @@
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\User\AccountController;
-use App\Http\Controllers\Frontend\User\ProfileController;
-use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\SpecialistController;
 use App\Http\Controllers\Frontend\RatingController;
 
@@ -26,21 +24,13 @@ Route::group(['middleware' => [/*'auth', 'password_expires'*/]], function () {
         /*
          * User Dashboard Specific
          */
-        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('dashboard', [AccountController::class, 'index'])->name('dashboard');
+        Route::get('profile', [AccountController::class, 'profile'])->name('profile');
+        Route::post('profile/store', [AccountController::class, 'storeProfile'])->name('profile.store');
+        Route::get('favourites', [AccountController::class, 'favourites'])->name('favourites');
+        Route::get('messages', [AccountController::class, 'messages'])->name('messages');
 
-        /*
-         * User Account Specific
-         */
-        Route::get('account', [AccountController::class, 'index'])->name('account');
 
-        /*
-         * User Profile Specific
-         */
-        Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');
-
-        /*
-         * Specialist
-         */
         Route::get('specialist', [SpecialistController::class, 'index'])->name('specialist.index');
         Route::get('specialist/{id}', [SpecialistController::class, 'show'])->name('specialist.show');
 

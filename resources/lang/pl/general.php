@@ -61,6 +61,19 @@ return [
     'all_specializations' => 'Wszystkie',
     'please_select' => 'Proszę wybrać...',
     'city' => 'Miejscowość',
-    'visits' => 'Wyświetleń'
+    'visits' => 'Wyświetleń',
+    'login_to_find_specialist' => 'Rejestracja',
+    'password' => 'Hasło',
+    'confirm_password' => 'Potwierdź hasło',
+    'register' => 'Zarejestruj',
+    'dashboard' => 'Panel Główny',
+    'profile' => 'Profil',
+    'favorites' => 'Ulubione',
+    'messages' => 'Wiadomości',
+    'password_change' => 'Zmiana hasła',
+    'your_name' => 'Twoje imię',
+    'your_last_name' => 'Twoje nazwisko',
+    'your_password' => 'Wpisz nowe hasło',
+    'confirm_your_password' => 'Potwierdź nowe hasło'
 
 ];

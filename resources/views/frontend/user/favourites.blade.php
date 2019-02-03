@@ -10,10 +10,8 @@
 
                 @include('frontend.user.menu')
 
-
                 <div class="col-lg-9" id="faq">
-                    <h4 class="nomargin_top">@lang('general.dashboard')</h4>
-
+                    <h4 class="nomargin_top">@lang('general.favorites')</h4>
                 </div>
             </div>
         </div>

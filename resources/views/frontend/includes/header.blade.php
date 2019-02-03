@@ -11,7 +11,7 @@
                 <ul id="top_access">
                     @if(Auth::check())
                         <li id="user" class="submenu">
-                            <a href="{{ route('admin.dashboard') }}">
+                            <a href="{{ auth()->user()->can('view backend') ? route('admin.dashboard') : route('frontend.user.dashboard') }}">
                                 <figure><img src="{{ Auth::user()->profilePictureSrc() }}" alt=""></figure>
                                 {{ Auth::user()->first_name }}
                             </a>

@@ -15,36 +15,31 @@
                                     <label>@lang('general.name')</label>
                                     {{ html()->text('first_name')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.first_name'))
                                         ->attribute('maxlength', 191) }}
                                 </div>
                                 <div class="form-group">
-                                    <label>@lang('general.lastname')</label>
+                                    <label>@lang('general.last_name')</label>
                                     {{ html()->text('last_name')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.last_name'))
                                         ->attribute('maxlength', 191) }}
                                 </div>
                                 <div class="form-group">
                                     <label>@lang('general.email')</label>
                                     {{ html()->email('email')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.email'))
                                         ->attribute('maxlength', 191)
                                         ->required() }}
                                 </div>
                                 <div class="form-group">
-                                    <label>@lang('general.password_')</label>
+                                    <label>@lang('general.password')</label>
                                     {{ html()->password('password')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.password'))
                                         ->required() }}
                                 </div>
                                 <div class="form-group">
                                     <label>@lang('general.confirm_password')</label>
                                     {{ html()->password('password_confirmation')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.password_confirmation'))
                                         ->required() }}
                                 </div>
                                 <div id="pass-info" class="clearfix"></div>
@@ -55,7 +50,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group text-center add_top_30">
-                                    {{ form_submit(__('labels.frontend.auth.register_button')) }}
+                                    {{ form_submit(__('general.register')) }}
                                 </div>
                             </div>
                             

@@ -12,7 +12,7 @@
 
 
                 <div class="col-lg-9" id="faq">
-                    <h4 class="nomargin_top">@lang('general.dashboard')</h4>
+                    <h4 class="nomargin_top">@lang('general.messages')</h4>
 
                 </div>
             </div>
