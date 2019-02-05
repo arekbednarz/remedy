@@ -40,6 +40,10 @@ class Specialist extends User
         return $this->hasMany(Rating::class, 'specialist_id');
     }
 
+    public function favouritedBy() {
+        return $this->belongsToMany(User::class, 'favourites', 'specialist_id', 'user_id');
+    }
+
     public function ratingDetails() {
         $ratings = $this->ratings()->selectRaw('rating, count(rating) as count_rating')->groupBy(['rating'])->get();
 

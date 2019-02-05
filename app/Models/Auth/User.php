@@ -2,7 +2,9 @@
 
 namespace App\Models\Auth;
 
+use App\Models\Favourite;
 use App\Models\Rating;
+use App\Models\Specialist;
 use App\Models\Specialization;
 use App\Models\Traits\Uuid;
 use Spatie\Permission\Traits\HasRoles;
@@ -98,6 +100,10 @@ class User extends Authenticatable
 
     public function profilePictureSrc() {
         return "/storage/avatars/".(!empty($this->profile_picture) ? $this->profile_picture : 'no.jpg');
+    }
+
+    public function favourites() {
+        return $this->belongsToMany(Specialist::class, 'favourites', 'user_id', 'specialist_id')->withTimeStamps();
     }
 
 }

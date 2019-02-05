@@ -55,7 +55,8 @@ class AccountController extends Controller
     }
 
     public function favourites() {
-        return view('frontend.user.favourites');
+        $favourites = Auth::user()->favourites;
+        return view('frontend.user.favourites', compact('favourites'));
     }
 
     public function messages() {
