@@ -1910,6 +1910,11 @@ a.wish_bt:hover:after {
   color: #e74e84;
 }
 
+.faved:after {
+  content: "\e089" !important;
+  color: #e74e84 !important;
+}
+
 .strip_list {
   margin-bottom: 25px;
   background-color: #fff;

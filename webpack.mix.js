@@ -28,6 +28,7 @@ mix.sass('resources/sass/frontend/app.scss', 'css/frontend.css')
         'axios',
         'sweetalert2',
         'lodash',
+        'toastr',
         '@fortawesome/fontawesome-svg-core',
         '@fortawesome/free-brands-svg-icons',
         '@fortawesome/free-regular-svg-icons',

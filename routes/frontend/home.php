@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\SpecialistController;
 use App\Http\Controllers\Frontend\RatingController;
+use App\Http\Controllers\Frontend\FavouriteController;
 
 /*
  * Frontend Controllers
@@ -27,7 +28,11 @@ Route::group(['middleware' => [/*'auth', 'password_expires'*/]], function () {
         Route::get('dashboard', [AccountController::class, 'index'])->name('dashboard');
         Route::get('profile', [AccountController::class, 'profile'])->name('profile');
         Route::post('profile/store', [AccountController::class, 'storeProfile'])->name('profile.store');
+
         Route::get('favourites', [AccountController::class, 'favourites'])->name('favourites');
+        Route::get('favourites/{id}/add', [FavouriteController::class, 'add'])->name('favourites.add');
+        Route::get('favourites/{id}/remove', [FavouriteController::class, 'remove'])->name('favourites.remove');
+
         Route::get('messages', [AccountController::class, 'messages'])->name('messages');
 
 

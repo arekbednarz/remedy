@@ -31,6 +31,7 @@
         <link href="{{ asset('css/frontend/menu.css') }}" rel="stylesheet">
         <link href="{{ asset('css/frontend/vendors.css') }}" rel="stylesheet">
         <link href="{{ asset('css/frontend/icon_fonts/css/all_icons_min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/frontend/toastr.css') }}" rel="stylesheet">
 
         <!-- YOUR CUSTOM CSS -->
         <link href="{{ asset('css/frontend/custom.css') }}" rel="stylesheet">
@@ -64,7 +65,7 @@
             <script src="{{ asset('js/frontend/jquery-2.2.4.min.js') }}"></script>
             <script src="{{ asset('js/frontend/common_scripts.js') }}"></script>
             <script src="{{ asset('js/frontend/functions.js') }}"></script>
-
+            <script src="{{ asset('js/frontend/toastr.min.js') }}"></script>
             @stack('after-scripts')
 
         </div>

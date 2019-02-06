@@ -1,5 +1,5 @@
 <div class="strip_list wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
-    <a href="#0" class="wish_bt"></a>
+    <a href="" class="wish_bt {{ Auth::user()->favourites()->where('users.id', $specialist->id)->exists() ? 'faved' : 'unfaved' }}" data-id="{{ $specialist->id }}"></a>
     <figure>
         <a href="{{ route('frontend.user.specialist.show', [$specialist->id]) }}"><img src="{{ $specialist->profilePictureSrc() }}" alt=""></a>
     </figure>

@@ -8,6 +8,7 @@
 
 @push('after-scripts')
     <script src="{{ asset('js/frontend/search.js') }}"></script>
+    <script src="{{ asset('js/frontend/favourite.js') }}"></script>
 @endpush
 
 @section('content')

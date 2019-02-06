@@ -2,6 +2,11 @@
 
 @section('title', app_name() . ' | ' . __('navs.frontend.dashboard') )
 
+@push('after-scripts')
+    <script src="{{ asset('js/frontend/favourite.js') }}"></script>
+@endpush
+
+
 @section('content')
     <main>
 
