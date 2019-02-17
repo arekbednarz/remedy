@@ -20,7 +20,7 @@
                     </span>
                     <ul class="statistic">
                         <li>{{ $visits }} @lang('general.visits')</li>
-                        <li>124 <i class="icon-heart"></i></li>
+                        <li>{{ $likes }} <i class="icon-heart"></i></li>
                     </ul>
                     <ul class="contacts">
                         <li>

@@ -35,9 +35,10 @@ class SpecialistController extends Controller
         $visits = Counter::showAndCount('user-profile', $specialist->id);
 
         $ratings = $specialist->ratingDetails();
+        $likes = $specialist->favouritedBy()->count();
 
         $firstReviews = $ratingController->indexAjax($specialist->id);
-        return view('frontend.pages.specialist.show', compact('specialist', 'ratings', 'firstReviews', 'visits'));
+        return view('frontend.pages.specialist.show', compact('specialist', 'ratings', 'firstReviews', 'visits', 'likes'));
     }
 
     public function getFiltered(Request $request) {

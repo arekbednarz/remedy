@@ -5,8 +5,14 @@
 - akceptacja oceny przez moderatora
 - zgłaszanie komentarzy
 
-- licznik unikalnych wejść na profil
-
 - czyszczenie wyników szukania
 
 - widok specjalisty, czesc po prawej - cos tam dac
+
+- pasek wyszukiwarki na liscie wyników chowa sie przy scrolowaniu (wziac przyklad ze strony specialist details page)
+
+- stopka
+
+- dashboard profilu
+
+- wiadomości
