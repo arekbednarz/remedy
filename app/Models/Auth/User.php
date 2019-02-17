@@ -3,6 +3,7 @@
 namespace App\Models\Auth;
 
 use App\Models\Favourite;
+use App\Models\Message;
 use App\Models\Rating;
 use App\Models\Specialist;
 use App\Models\Specialization;
@@ -104,6 +105,10 @@ class User extends Authenticatable
 
     public function favourites() {
         return $this->belongsToMany(Specialist::class, 'favourites', 'user_id', 'specialist_id')->withTimeStamps();
+    }
+
+    public function messages() {
+        return $this->hasMany(Message::class);
     }
 
 }

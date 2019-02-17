@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\SpecialistController;
 use App\Http\Controllers\Frontend\RatingController;
 use App\Http\Controllers\Frontend\FavouriteController;
+use App\Http\Controllers\Frontend\MessageController;
 
 /*
  * Frontend Controllers
@@ -48,4 +49,9 @@ Route::group(['middleware' => [/*'auth', 'password_expires'*/]], function () {
         Route::get('review/create/{specialist_id}', [RatingController::class, 'create'])->name('create');
         Route::post('review/store', [RatingController::class, 'store'])->name('store');
     });
+
+    Route::group(['namespace' => 'Messages', 'as' => 'messages.'], function () {
+        Route::get('messages', [MessageController::class, 'index'])->name('index');
+    });
+
 });
