@@ -5091,7 +5091,7 @@ ul#cat_nav li a {
   display: block;
   padding: 15px 10px;
 }
-ul#cat_nav li a:after {
+ul#cat_nav li a:not(.mailmenu):after {
   font-family: "fontello";
   content: "\e89b";
   position: absolute;

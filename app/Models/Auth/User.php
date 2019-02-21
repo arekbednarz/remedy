@@ -111,4 +111,8 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }
 
+    public function name() {
+        return $this->first_name.' '.$this->last_name;
+    }
+
 }

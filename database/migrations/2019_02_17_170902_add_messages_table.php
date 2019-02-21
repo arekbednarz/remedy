@@ -28,6 +28,9 @@ class AddMessagesTable extends Migration
 
             $table->boolean('viewed')->default(false);
 
+            $table->boolean('removed_by_user')->default(false);
+            $table->boolean('removed_by_specialist')->default(false);
+
             $table->timestamps();
         });
     }

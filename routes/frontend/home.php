@@ -52,6 +52,7 @@ Route::group(['middleware' => [/*'auth', 'password_expires'*/]], function () {
 
     Route::group(['namespace' => 'Messages', 'as' => 'messages.'], function () {
         Route::get('messages', [MessageController::class, 'index'])->name('index');
+        Route::get('messages/{id}', [MessageController::class, 'show'])->name('show');
     });
 
 });
